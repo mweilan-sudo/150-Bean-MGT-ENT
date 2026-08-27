@@ -1,0 +1,1568 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Story of the Bean: Management and Entrepreneurship Lens</title>
+  <link rel="icon" href="data:,">
+  <style>
+    :root {
+      --asu-maroon: #8c1d40;
+      --asu-gold: #ffc627;
+      --asu-black: #191919;
+      --asu-gray-2: #484848;
+      --asu-gray: #747474;
+      --asu-gray-4: #bfbfbf;
+      --asu-gray-5: #d0d0d0;
+      --asu-gray-6: #e8e8e8;
+      --asu-gray-7: #fafafa;
+      --asu-white: #ffffff;
+      --asu-blue-dark: #00658b;
+      --asu-green-dark: #3f6811;
+      --focus: #005ea8;
+      --danger: #a71930;
+      --soft-gold: #fff7dc;
+      --soft-maroon: #fbedf2;
+      --soft-blue: #eaf7fc;
+      --soft-green: #edf7e8;
+      --line: #d0d0d0;
+    }
+
+    #mgt-activity,
+    #mgt-activity * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: #f5f5f5;
+      color: var(--asu-black);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.55;
+    }
+
+    #mgt-activity .skip-link {
+      position: absolute;
+      left: 12px;
+      top: -60px;
+      z-index: 100;
+      padding: 10px 14px;
+      border-radius: 4px;
+      background: var(--asu-gold);
+      color: var(--asu-black);
+      font-weight: 700;
+    }
+
+    #mgt-activity .skip-link:focus {
+      top: 12px;
+      outline: 3px solid var(--asu-white);
+      outline-offset: 2px;
+    }
+
+    #mgt-activity .course-header {
+      border-bottom: 8px solid var(--asu-gold);
+      background: var(--asu-maroon);
+      color: var(--asu-white);
+    }
+
+    #mgt-activity .header-inner,
+    #mgt-activity main {
+      width: min(1180px, 100%);
+      margin: 0 auto;
+    }
+
+    #mgt-activity .header-inner {
+      padding: 30px clamp(18px, 4vw, 48px);
+    }
+
+    #mgt-activity .eyebrow {
+      display: inline-block;
+      margin: 0 0 10px;
+      padding: 5px 10px;
+      border-radius: 999px;
+      background: var(--asu-gold);
+      color: var(--asu-black);
+      font-size: .82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    #mgt-activity h1 {
+      margin: 0;
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      line-height: 1.08;
+      letter-spacing: 0;
+    }
+
+    #mgt-activity .course-header p:last-child {
+      margin: 12px 0 0;
+      font-size: 1.05rem;
+    }
+
+    #mgt-activity main {
+      padding: 24px clamp(14px, 3vw, 32px) 52px;
+    }
+
+    #mgt-activity h2 {
+      margin: 0 0 10px;
+      color: var(--asu-maroon);
+      font-size: clamp(1.45rem, 2.2vw, 1.9rem);
+      line-height: 1.2;
+      letter-spacing: 0;
+    }
+
+    #mgt-activity h3 {
+      margin: 22px 0 8px;
+      color: var(--asu-black);
+      font-size: 1.2rem;
+      line-height: 1.25;
+      letter-spacing: 0;
+    }
+
+    #mgt-activity h4 {
+      margin: 0 0 6px;
+      color: var(--asu-black);
+      font-size: 1rem;
+      letter-spacing: 0;
+    }
+
+    #mgt-activity p {
+      margin: 0 0 12px;
+    }
+
+    #mgt-activity ul,
+    #mgt-activity ol {
+      margin: 0 0 16px;
+      padding-left: 25px;
+    }
+
+    #mgt-activity li + li {
+      margin-top: 7px;
+    }
+
+    #mgt-activity a {
+      color: var(--asu-blue-dark);
+      font-weight: 700;
+    }
+
+    #mgt-activity button,
+    #mgt-activity select,
+    #mgt-activity textarea,
+    #mgt-activity input {
+      font: inherit;
+    }
+
+    #mgt-activity button,
+    #mgt-activity select,
+    #mgt-activity textarea,
+    #mgt-activity input[type="radio"] {
+      scroll-margin: 90px;
+    }
+
+    #mgt-activity button:focus-visible,
+    #mgt-activity select:focus-visible,
+    #mgt-activity textarea:focus-visible,
+    #mgt-activity input:focus-visible,
+    #mgt-activity [tabindex="0"]:focus-visible {
+      outline: 3px solid var(--focus);
+      outline-offset: 3px;
+    }
+
+    #mgt-activity .activity-intro {
+      margin-bottom: 18px;
+      padding: 20px 24px;
+      border: 1px solid var(--line);
+      border-left: 8px solid var(--asu-gold);
+      border-radius: 8px;
+      background: var(--asu-white);
+    }
+
+    #mgt-activity .scoring-note {
+      margin-top: 12px;
+      padding: 11px 13px;
+      border: 1px solid #e8cf7a;
+      border-radius: 5px;
+      background: var(--soft-gold);
+    }
+
+    #mgt-activity .tab-list {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-end;
+      gap: 0 8px;
+      border-bottom: 3px solid var(--line);
+    }
+
+    #mgt-activity .tab-button {
+      min-height: 52px;
+      margin: 0 0 -3px;
+      padding: 12px 16px;
+      border: 2px solid transparent;
+      border-bottom: 3px solid var(--line);
+      border-radius: 7px 7px 0 0;
+      background: var(--asu-gray-6);
+      color: var(--asu-black);
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    #mgt-activity .tab-button:hover {
+      background: var(--asu-gray-5);
+    }
+
+    #mgt-activity .tab-button[aria-selected="true"] {
+      border-color: var(--asu-maroon);
+      border-bottom-color: var(--asu-maroon);
+      background: var(--asu-maroon);
+      color: var(--asu-white);
+    }
+
+    #mgt-activity .tab-panel {
+      padding: clamp(22px, 4vw, 42px);
+      border: 2px solid var(--line);
+      border-top: 0;
+      background: var(--asu-white);
+    }
+
+    #mgt-activity .callout,
+    #mgt-activity .ai-note,
+    #mgt-activity .evidence-note,
+    #mgt-activity .optional-box {
+      margin: 18px 0;
+      padding: 16px 18px;
+      border-radius: 6px;
+    }
+
+    #mgt-activity .callout {
+      border-left: 7px solid var(--asu-gold);
+      background: var(--soft-gold);
+    }
+
+    #mgt-activity .ai-note {
+      border-left: 7px solid var(--asu-blue-dark);
+      background: var(--soft-blue);
+    }
+
+    #mgt-activity .evidence-note {
+      border-left: 7px solid var(--asu-maroon);
+      background: var(--soft-maroon);
+    }
+
+    #mgt-activity .optional-box {
+      border: 2px solid var(--line);
+      background: var(--asu-gray-7);
+    }
+
+    #mgt-activity .artifact-heading {
+      margin-top: 30px;
+      padding-top: 16px;
+      border-top: 5px solid var(--asu-gold);
+    }
+
+    #mgt-activity .table-wrap {
+      max-width: 100%;
+      margin: 14px 0 22px;
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      background: var(--asu-white);
+    }
+
+    #mgt-activity table {
+      width: 100%;
+      min-width: 680px;
+      border-collapse: collapse;
+    }
+
+    #mgt-activity th,
+    #mgt-activity td {
+      padding: 12px 14px;
+      border: 1px solid var(--line);
+      vertical-align: top;
+      text-align: left;
+    }
+
+    #mgt-activity th {
+      background: var(--asu-gray-6);
+      font-weight: 700;
+    }
+
+    #mgt-activity .function-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin: 18px 0 24px;
+    }
+
+    #mgt-activity .function-item {
+      min-height: 165px;
+      padding: 15px;
+      border: 1px solid var(--line);
+      border-top: 6px solid var(--asu-maroon);
+      background: var(--asu-gray-7);
+    }
+
+    #mgt-activity .function-item:nth-child(even) {
+      border-top-color: var(--asu-gold);
+    }
+
+    #mgt-activity .function-number {
+      display: block;
+      color: var(--asu-maroon);
+      font-size: 1.4rem;
+      font-weight: 700;
+    }
+
+    #mgt-activity .control-steps {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      grid-auto-rows: 1fr;
+      gap: 10px;
+      align-items: stretch;
+      margin: 18px 0 24px;
+      padding: 0;
+      list-style: none;
+      counter-reset: control-step;
+    }
+
+    #mgt-activity .control-steps li {
+      height: 100%;
+      margin-top: 0;
+      min-height: 145px;
+      padding: 13px;
+      border: 1px solid var(--line);
+      background: var(--asu-white);
+      counter-increment: control-step;
+    }
+
+    #mgt-activity .control-steps li::before {
+      display: block;
+      width: 31px;
+      height: 31px;
+      margin-bottom: 8px;
+      border-radius: 50%;
+      background: var(--asu-gold);
+      color: var(--asu-black);
+      content: counter(control-step);
+      font-weight: 700;
+      line-height: 31px;
+      text-align: center;
+    }
+
+    #mgt-activity .research-list,
+    #mgt-activity .path-list {
+      margin: 16px 0 24px;
+      padding-left: 0;
+      list-style: none;
+    }
+
+    #mgt-activity .research-list li,
+    #mgt-activity .path-list li {
+      padding: 13px 0 13px 42px;
+      border-bottom: 1px solid var(--line);
+      position: relative;
+    }
+
+    #mgt-activity .research-list li::before,
+    #mgt-activity .path-list li::before {
+      position: absolute;
+      left: 4px;
+      top: 14px;
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      background: var(--asu-maroon);
+      color: var(--asu-white);
+      content: "M";
+      font-size: .8rem;
+      font-weight: 700;
+      line-height: 25px;
+      text-align: center;
+    }
+
+    #mgt-activity .path-list li::before {
+      background: var(--asu-gold);
+      color: var(--asu-black);
+      content: "P";
+    }
+
+    #mgt-activity .message-thread {
+      margin: 16px 0 24px;
+      padding: 0;
+      list-style: none;
+    }
+
+    #mgt-activity .message-thread li {
+      display: grid;
+      grid-template-columns: minmax(115px, 170px) minmax(0, 1fr);
+      gap: 14px;
+      margin: 0;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    #mgt-activity .speaker {
+      color: var(--asu-maroon);
+      font-weight: 700;
+    }
+
+    #mgt-activity .match-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin: 16px 0 22px;
+    }
+
+    #mgt-activity .match-row {
+      padding: 14px;
+      border: 1px solid var(--line);
+      background: var(--asu-gray-7);
+    }
+
+    #mgt-activity .match-row label,
+    #mgt-activity .optional-box label {
+      display: block;
+      margin-bottom: 7px;
+      font-weight: 700;
+    }
+
+    #mgt-activity select,
+    #mgt-activity textarea {
+      width: 100%;
+      min-height: 46px;
+      padding: 9px 11px;
+      border: 2px solid var(--asu-gray);
+      border-radius: 4px;
+      background: var(--asu-white);
+      color: var(--asu-black);
+    }
+
+    #mgt-activity textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    #mgt-activity .question-card {
+      margin: 18px 0;
+      padding: 18px;
+      border: 2px solid var(--line);
+      border-radius: 7px;
+      background: var(--asu-white);
+    }
+
+    #mgt-activity fieldset {
+      margin: 0;
+      padding: 0;
+      border: 0;
+    }
+
+    #mgt-activity legend {
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+
+    #mgt-activity .choice-row {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr);
+      gap: 10px;
+      align-items: start;
+      margin: 9px 0;
+      padding: 10px;
+      border: 1px solid var(--line);
+      border-radius: 5px;
+      background: var(--asu-gray-7);
+      cursor: pointer;
+    }
+
+    #mgt-activity .choice-row:hover {
+      background: var(--soft-gold);
+    }
+
+    #mgt-activity input[type="radio"] {
+      width: 20px;
+      height: 20px;
+      margin-top: 2px;
+      accent-color: var(--asu-maroon);
+    }
+
+    #mgt-activity .controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    #mgt-activity button {
+      min-height: 46px;
+      padding: 10px 16px;
+      border: 2px solid var(--asu-maroon);
+      border-radius: 5px;
+      background: var(--asu-maroon);
+      color: var(--asu-white);
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    #mgt-activity button:hover:not(:disabled) {
+      background: #6f1733;
+    }
+
+    #mgt-activity button:disabled {
+      border-color: var(--asu-gray-4);
+      background: var(--asu-gray-6);
+      color: var(--asu-gray-2);
+      cursor: not-allowed;
+    }
+
+    #mgt-activity .secondary-button {
+      border-color: var(--asu-gray-2);
+      background: var(--asu-gray-2);
+    }
+
+    #mgt-activity .secondary-button:hover:not(:disabled) {
+      background: var(--asu-black);
+    }
+
+    #mgt-activity .submit-button {
+      min-height: 52px;
+      box-shadow: 0 0 0 4px var(--asu-gold);
+      font-size: 1.05rem;
+    }
+
+    #mgt-activity .error-message,
+    #mgt-activity .feedback,
+    #mgt-activity .submission-status {
+      margin-top: 16px;
+      padding: 13px 15px;
+      border-radius: 5px;
+    }
+
+    #mgt-activity .error-message {
+      border-left: 7px solid var(--danger);
+      background: #fff3f3;
+    }
+
+    #mgt-activity .feedback {
+      border-left: 7px solid var(--asu-blue-dark);
+      background: var(--soft-blue);
+    }
+
+    #mgt-activity .feedback strong {
+      color: var(--asu-black);
+    }
+
+    #mgt-activity .completion-controls {
+      margin-top: 24px;
+      padding: 17px;
+      border: 2px solid var(--asu-maroon);
+      border-radius: 7px;
+      background: var(--soft-maroon);
+    }
+
+    #mgt-activity .score-summary {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin: 18px 0;
+    }
+
+    #mgt-activity .summary-item {
+      padding: 14px;
+      border-left: 6px solid var(--asu-gold);
+      background: var(--soft-gold);
+    }
+
+    #mgt-activity .summary-item strong {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--asu-maroon);
+      font-size: 1.25rem;
+    }
+
+    #mgt-activity .submission-status {
+      border-left: 7px solid var(--asu-blue-dark);
+      background: var(--soft-blue);
+    }
+
+    #mgt-activity .submission-status.success {
+      border-left-color: var(--asu-green-dark);
+      background: var(--soft-green);
+    }
+
+    #mgt-activity .print-takeaway {
+      display: none;
+    }
+
+    @media (max-width: 930px) {
+      #mgt-activity .function-grid,
+      #mgt-activity .control-steps {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      #mgt-activity .score-summary {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 680px) {
+      #mgt-activity .tab-list,
+      #mgt-activity .controls {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+
+      #mgt-activity .tab-button {
+        width: 100%;
+        margin: 0;
+        border: 2px solid transparent;
+        border-radius: 6px;
+        text-align: left;
+      }
+
+      #mgt-activity .tab-panel {
+        margin-top: 8px;
+        border-top: 2px solid var(--line);
+        border-radius: 7px;
+      }
+
+      #mgt-activity .function-grid,
+      #mgt-activity .control-steps,
+      #mgt-activity .match-grid {
+        grid-template-columns: 1fr;
+      }
+
+      #mgt-activity .message-thread li {
+        grid-template-columns: 1fr;
+        gap: 4px;
+      }
+
+      #mgt-activity .controls button,
+      #mgt-activity .submit-button,
+      #mgt-activity .secondary-button {
+        width: 100%;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      #mgt-activity *,
+      #mgt-activity *::before,
+      #mgt-activity *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+      }
+    }
+
+    @media print {
+      @page {
+        margin: .65in;
+      }
+
+      #mgt-activity .skip-link,
+      #mgt-activity .course-header,
+      #mgt-activity main {
+        display: none !important;
+      }
+
+      body {
+        background: var(--asu-white);
+      }
+
+      #mgt-activity .print-takeaway {
+        display: block;
+        color: var(--asu-black);
+        font-size: 11pt;
+      }
+
+      #mgt-activity .print-takeaway h1 {
+        padding-bottom: 10px;
+        border-bottom: 4px solid var(--asu-gold);
+        color: var(--asu-maroon);
+        font-size: 24pt;
+      }
+
+      #mgt-activity .print-takeaway h2 {
+        margin-top: 22px;
+        color: var(--asu-maroon);
+        font-size: 15pt;
+      }
+
+      #mgt-activity .print-summary {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+        margin: 18px 0;
+      }
+
+      #mgt-activity .print-summary div {
+        padding: 10px;
+        border: 1px solid var(--asu-gray-4);
+      }
+
+      #mgt-activity .print-summary strong {
+        display: block;
+        margin-bottom: 3px;
+      }
+
+      #mgt-activity .print-results {
+        columns: 2;
+        column-gap: 28px;
+      }
+
+      #mgt-activity .print-results li {
+        break-inside: avoid;
+        margin-bottom: 7px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="mgt-activity">
+    <a class="skip-link" href="#mgt-main">Skip to main content</a>
+
+    <header class="course-header">
+      <div class="header-inner">
+        <p class="eyebrow">WPC 150 Case Segment</p>
+        <h1>The Story of the Bean: Management and Entrepreneurship Lens</h1>
+        <p>Examine how Copper Cup could turn a proposed coffee pilot into organized, ethical, and adaptable work.</p>
+      </div>
+    </header>
+
+    <main id="mgt-main">
+      <section class="activity-intro" aria-labelledby="activity-heading">
+        <h2 id="activity-heading">How This Chapter Works</h2>
+        <p>Read the case tabs, inspect the launch artifacts, and complete all 10 objective checks. You may revise your work before the required Canvas submission step.</p>
+        <div class="scoring-note">
+          <strong>Canvas scoring:</strong> Four management-function matches and six evidence-based decisions are worth 10 points each. Your launch recommendation and reflection are optional and unscored.
+        </div>
+      </section>
+
+      <nav class="tab-list" role="tablist" aria-label="Management and entrepreneurship case sections">
+        <button class="tab-button" id="tab-handoff" type="button" role="tab" aria-selected="true" aria-controls="panel-handoff">Case Context</button>
+        <button class="tab-button" id="tab-narrative" type="button" role="tab" aria-selected="false" aria-controls="panel-narrative" tabindex="-1">MGT&amp;ENT Narrative</button>
+        <button class="tab-button" id="tab-functions" type="button" role="tab" aria-selected="false" aria-controls="panel-functions" tabindex="-1">Four Functions</button>
+        <button class="tab-button" id="tab-people" type="button" role="tab" aria-selected="false" aria-controls="panel-people" tabindex="-1">People &amp; HR</button>
+        <button class="tab-button" id="tab-paths" type="button" role="tab" aria-selected="false" aria-controls="panel-paths" tabindex="-1">Paths &amp; Research</button>
+        <button class="tab-button" id="tab-decision" type="button" role="tab" aria-selected="false" aria-controls="panel-decision" tabindex="-1">Launch Decision</button>
+        <button class="tab-button" id="tab-practice" type="button" role="tab" aria-selected="false" aria-controls="panel-practice" tabindex="-1">Practice</button>
+        <button class="tab-button" id="tab-submit" type="button" role="tab" aria-selected="false" aria-controls="panel-submit" tabindex="-1" hidden>Submit</button>
+      </nav>
+
+      <article class="tab-panel" id="panel-handoff" role="tabpanel" tabindex="0" aria-labelledby="tab-handoff">
+        <h2>Case Context</h2>
+        <p>Copper Cup is preparing a limited operational test for <strong>The Story of the Bean</strong>. For this scenario, the draft plan uses a one-year direct cooperative agreement and modest traceability tools. Before making a longer-term commitment, owner Elena Torres wants to learn whether the team can deliver the product accurately, responsibly, and consistently during a busy cafe launch.</p>
+        <p>The proposal looks promising on paper. Now Copper Cup has to determine how people, roles, goals, and operating systems would make it work.</p>
+
+        <div class="evidence-note">
+          <h3>Launch Signal 1: The Morning Rush</h3>
+          <p>Customers want the story, but the line slows when employees try to explain the sourcing relationship. Some employees shorten the message; others add claims that Copper Cup has not verified.</p>
+        </div>
+
+        <div class="evidence-note">
+          <h3>Launch Signal 2: A Difficult Goal</h3>
+          <p>The launch dashboard calls for 420 featured drinks per week. Employees worry that a sales-only target will pressure them to oversell the product and ignore customer fit, workload, or evidence quality.</p>
+        </div>
+
+        <p>Elena asks Maya a new question: "How do we keep the promise to the cooperative, customers, and employees when the work is more complicated than the plan?"</p>
+
+        <div class="callout">
+          <p><strong>Management and entrepreneurship decision:</strong> How should Copper Cup organize the launch, lead employees, control quality, and learn from the pilot without turning purpose into pressure?</p>
+        </div>
+
+        <div class="ai-note">
+          <h3>AI at Work: Turning a Plan Into Tasks</h3>
+          <p>Maya can ask AI to draft a responsibility chart, training outline, or experiment plan. She still has to verify staffing assumptions, ask employees what the workflow misses, and reject metrics that reward sales while hiding inaccurate claims or burnout.</p>
+        </div>
+      </article>
+
+      <article class="tab-panel" id="panel-narrative" role="tabpanel" tabindex="0" aria-labelledby="tab-narrative" hidden>
+        <h2>Management and Entrepreneurship: When the Bean Becomes Work</h2>
+        <p>Management and Entrepreneurship asks how people turn opportunity into organized action. The opportunity is clear: Copper Cup can create a coffee experience that helps customers understand the people and systems behind the bean. But ideas do not execute themselves. Someone has to plan the launch, organize roles, lead employees, measure results, and adapt when reality is messier than the plan.</p>
+        <p>Management begins with organizations. Organizations divide work among people with different skills so they can accomplish goals that would be difficult to achieve alone. That efficiency also creates challenges: people need motivation and commitment, teams need coordination, leaders need judgment, and the organization needs a strategy that connects daily work to competitive advantage.</p>
+        <p>The management discipline examines both the micro and macro sides of those challenges. The micro or organizational-behavior side studies how individuals and teams perform, communicate, negotiate, lead, respond to conflict, and remain committed. The macro or strategic side asks how a firm builds capabilities, positions itself against competitors, allocates resources, and creates value that is difficult to imitate.</p>
+        <p>Entrepreneurship is not limited to opening a company. It is a way of finding an opportunity, forming a value proposition, testing assumptions, assembling resources, and adjusting when evidence challenges the original idea. A student can use that mindset in a startup, a family business, a nonprofit, or an established company that needs a new product or process.</p>
+        <p>Human resources makes the people system visible. Copper Cup needs to recruit, select, onboard, train, schedule, support, evaluate, and retain employees. It also needs employment practices that are consistent, job-related, respectful, and compliant with applicable law. The product promise cannot survive if the company treats people as interchangeable labor.</p>
+
+        <p>Elena writes a launch goal:</p>
+        <div class="callout">
+          <p><strong>In eight weeks, Copper Cup will introduce The Story of the Bean in a way that increases customer understanding, protects employee workload, and meets the sales level needed to sustain the cooperative relationship.</strong></p>
+        </div>
+
+        <p>Maya sees the four functions of management. Planning defines goals, assumptions, timelines, and decisions. Organizing assigns work, authority, information, and resources. Leading influences people to understand the purpose, contribute ideas, and perform with confidence. Controlling compares actual results with standards so managers can communicate deviations, correct problems, and reinforce what works.</p>
+        <p>The entrepreneurship lens adds a testable assumption: customers will care enough about the bean's story to support a more transparent sourcing model. Copper Cup does not yet know whether the right format is a premium latte, a small drip, a retail bag, a QR page, a short employee script, or some combination. The pilot should create evidence before the company scales.</p>
+        <p>The first week reveals the human side of the launch. During the morning rush, customers ask detailed questions. Some employees are excited. Others feel they are being asked to sell a more expensive drink while the line grows longer. Jordan, the shift lead, tells Maya, "I like the purpose, but if the goal is just to sell more, people will start saying whatever gets the order finished."</p>
+        <p>That warning is supported by management research in the course content. Difficult goals can motivate performance, but goals that feel unattainable or threatening can increase uncertainty, anxiety, burnout, and unethical behavior. Employees may narrow their attention to the measured target and stop helping coworkers. Involving employees in goal setting and providing support can increase enthusiasm and preserve the citizenship behaviors that keep a team functioning.</p>
+        <p>Elena revises the plan. Instead of requiring an upsell to every customer, employees ask one question: "Would you like to try the new roast and hear where it came from?" During rush periods, they give a short evidence-based explanation and point interested customers to the QR page. During slower periods, they can tell the fuller story.</p>
+        <p>The team also creates an ethical voice channel. Priya uses it immediately: "The sign says this coffee supports farmers. Can we say exactly how?" The team examines the evidence and changes the language:</p>
+        <div class="evidence-note">
+          <p><strong>Copper Cup pays a premium through a direct cooperative relationship and is piloting traceability tools to show more of the bean's journey.</strong></p>
+        </div>
+        <p>The new statement is less dramatic and more defensible. Research on ethical voice shows why this matters. Formal policies are not enough. Employees need practical ways to raise a complaint, suggest a more ethical action, or ask a question that redirects attention to an ethical issue. Leaders must respond without punishing the person who speaks.</p>
+        <p>Copper Cup's management problem is therefore not choosing between performance and responsibility. Effective leaders recognize that some tensions require a both-and response: sales and accuracy, customer access and financial sustainability, individual performance and teamwork, strategic control and employee voice.</p>
+        <p>Management and Entrepreneurship shows that responsibility is not merely an intention. It is a practice that has to be planned, organized, led, measured, corrected, and learned.</p>
+      </article>
+
+      <article class="tab-panel" id="panel-functions" role="tabpanel" tabindex="0" aria-labelledby="tab-functions" hidden>
+        <h2>Four Functions in Action</h2>
+        <p>The functions overlap in real work. A manager may plan a training standard, organize who teaches it, lead the team through practice, and control the process by checking whether employees can use the script accurately during a rush.</p>
+
+        <div class="function-grid" aria-label="Four functions of management">
+          <section class="function-item">
+            <span class="function-number">1</span>
+            <h3>Planning</h3>
+            <p>Set goals, assumptions, timelines, standards, and alternatives before committing resources.</p>
+          </section>
+          <section class="function-item">
+            <span class="function-number">2</span>
+            <h3>Organizing</h3>
+            <p>Assign roles, authority, information, schedules, and resources so work can move.</p>
+          </section>
+          <section class="function-item">
+            <span class="function-number">3</span>
+            <h3>Leading</h3>
+            <p>Influence, communicate, coach, listen, and build commitment to shared goals.</p>
+          </section>
+          <section class="function-item">
+            <span class="function-number">4</span>
+            <h3>Controlling</h3>
+            <p>Compare results with standards, communicate gaps, correct problems, and reinforce success.</p>
+          </section>
+        </div>
+
+        <h3 class="artifact-heading">Artifact: Maya's Launch Responsibility Board</h3>
+        <div class="table-wrap" role="region" aria-label="Copper Cup launch responsibility board" tabindex="0">
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">Workstream</th>
+                <th scope="col">Owner</th>
+                <th scope="col">Launch Standard</th>
+                <th scope="col">Signal and Response</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Employee training</td>
+                <td>Jordan and Maya</td>
+                <td>Every employee practices the short and full sourcing explanation.</td>
+                <td>Recoach when an employee cannot identify what Copper Cup verifies.</td>
+              </tr>
+              <tr>
+                <td>Customer claim</td>
+                <td>Elena and Priya</td>
+                <td>Menu, QR page, and employee script use the same evidence boundary.</td>
+                <td>Pause or revise language when a claim exceeds available evidence.</td>
+              </tr>
+              <tr>
+                <td>Morning-rush workflow</td>
+                <td>Shift lead</td>
+                <td>The short explanation does not materially delay regular service.</td>
+                <td>Simplify the handoff or adjust staffing when wait time rises sharply.</td>
+              </tr>
+              <tr>
+                <td>Inventory and waste</td>
+                <td>Opening manager</td>
+                <td>Batch size reflects forecast demand and available cooperative coffee.</td>
+                <td>Adjust the next batch when stockouts or closing waste exceed the standard.</td>
+              </tr>
+              <tr>
+                <td>Pilot learning</td>
+                <td>Maya</td>
+                <td>Sales, questions, QR scans, workload, and evidence status are reviewed weekly.</td>
+                <td>Recommend a pivot when the data contradict the launch assumptions.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>The Five-Step Control Process</h3>
+        <ol class="control-steps">
+          <li><strong>Set standards.</strong><br>Define the expected result and acceptable range.</li>
+          <li><strong>Monitor results.</strong><br>Collect relevant, timely, and usable evidence.</li>
+          <li><strong>Compare.</strong><br>Identify gaps between actual results and standards.</li>
+          <li><strong>Communicate.</strong><br>Share results and deviations with the people involved.</li>
+          <li><strong>Act and learn.</strong><br>Correct problems and reinforce successful performance.</li>
+        </ol>
+
+        <div class="ai-note">
+          <h3>AI at Work: Reviewing the Control Board</h3>
+          <p>AI could summarize shift notes or flag patterns in sales, wait time, and customer questions. A manager still decides whether the measures are comparable, whether the data omit employee experience, and whether a correction solves the cause instead of merely changing the number.</p>
+        </div>
+      </article>
+
+      <article class="tab-panel" id="panel-people" role="tabpanel" tabindex="0" aria-labelledby="tab-people" hidden>
+        <h2>People, Leadership, and Human Resources</h2>
+        <p>Managers coordinate goals, resources, roles, and controls. Leaders influence direction, meaning, trust, and commitment. The same person may do both, but a detailed schedule does not automatically inspire people, and a compelling vision does not replace staffing or follow-through.</p>
+        <p>Leadership style should fit the situation. A directive approach may be appropriate for immediate safety or compliance requirements. A participative approach uses employee knowledge when redesigning the rush workflow. Coaching builds skill through practice and feedback. Transformational or purpose-centered leadership connects daily work to a larger reason while still respecting evidence and workload.</p>
+        <p>Human resource management helps Copper Cup attract, select, onboard, train, compensate, support, and retain the people who make the launch possible. HR also connects people decisions to business strategy. The company cannot create a differentiated customer experience without employees who have the knowledge, time, motivation, and authority to deliver it.</p>
+
+        <h3 class="artifact-heading">Artifact: Copper Cup's Six-Step Selection Plan</h3>
+        <div class="table-wrap" role="region" aria-label="Copper Cup employee selection plan" tabindex="0">
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">Step</th>
+                <th scope="col">Copper Cup Action</th>
+                <th scope="col">Management Reason</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1. Define criteria</td>
+                <td>Identify job-related service, learning, teamwork, and communication requirements.</td>
+                <td>Selection begins with the work, not a manager's personal similarity preference.</td>
+              </tr>
+              <tr>
+                <td>2. Recruit applicants</td>
+                <td>Describe duties, schedule, pay range, and essential requirements accurately.</td>
+                <td>A realistic preview improves fit and reduces avoidable turnover.</td>
+              </tr>
+              <tr>
+                <td>3. Screen consistently</td>
+                <td>Review applications against the same documented criteria.</td>
+                <td>Consistency improves decision quality and supports fair treatment.</td>
+              </tr>
+              <tr>
+                <td>4. Interview and sample</td>
+                <td>Ask structured questions and use a short, accessible customer-scenario exercise.</td>
+                <td>Job-related evidence is stronger than an informal "gut feeling."</td>
+              </tr>
+              <tr>
+                <td>5. Verify lawfully</td>
+                <td>Check relevant references or background information consistently and with notice.</td>
+                <td>Screening should be necessary, proportionate, documented, and privacy-conscious.</td>
+              </tr>
+              <tr>
+                <td>6. Offer and onboard</td>
+                <td>Make the offer, complete lawful post-offer steps, train, and provide early feedback.</td>
+                <td>Selection continues through preparation, support, and transfer of training to the job.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>How Legislation Shapes HR Decisions</h3>
+        <ul>
+          <li><strong>Equal opportunity and nondiscrimination:</strong> Criteria and decisions must be job-related and applied consistently.</li>
+          <li><strong>Accessibility and accommodation:</strong> Applicants and employees may need reasonable access to selection, training, scheduling, and work.</li>
+          <li><strong>Wage, hour, leave, and scheduling requirements:</strong> Labor budgets and launch expectations must reflect lawful paid work and applicable protections.</li>
+          <li><strong>Safety and respectful work:</strong> Managers need prevention, reporting, response, and documentation practices.</li>
+          <li><strong>Privacy and records:</strong> Applicant and employee information should be collected only for a legitimate purpose and handled carefully.</li>
+        </ul>
+        <p>These principles are instructional examples, not a complete legal checklist. Copper Cup would need current professional guidance for the laws that apply to its location and workforce.</p>
+
+        <div class="callout">
+          <h3>Goal Design and Citizenship</h3>
+          <p>A difficult goal should include employee input when possible, the resources needed to perform, clear ethical boundaries, and measures beyond sales. That design can reduce uncertainty and burnout while protecting the helping, mentoring, and teamwork behaviors that formal job descriptions often miss.</p>
+        </div>
+      </article>
+
+      <article class="tab-panel" id="panel-paths" role="tabpanel" tabindex="0" aria-labelledby="tab-paths" hidden>
+        <h2>Management and Entrepreneurship in Action</h2>
+        <p>The department connects people, strategy, innovation, and human capital. Its current undergraduate pathways prepare students to lead teams, solve people and process problems, create or improve ventures, and manage the employment relationship.</p>
+
+        <h3>Current Degree and Certificate Pathways</h3>
+        <ul class="path-list">
+          <li><strong>Management:</strong> Strategic thinking, collaborative leadership, people and process problems, communication, and leading change.</li>
+          <li><strong>Business entrepreneurship:</strong> Opportunity identification, business-model design, resource strategy, product development, experimentation, and new or existing ventures.</li>
+          <li><strong>Human resources:</strong> Recruiting, staffing, compensation, training and development, employee relations, analytics, and legal compliance.</li>
+          <li><strong>Entrepreneurial and global leadership:</strong> Leading new ventures, small and medium-sized organizations, and teams operating across international contexts.</li>
+          <li><strong>Certificates:</strong> Entrepreneurship and innovation or leadership in business can add applied depth to another degree.</li>
+        </ul>
+        <div class="callout">
+          <p><strong>Explore the majors:</strong> Visit the <a href="https://wpcarey.asu.edu/management-degrees/undergraduate" target="_blank" rel="noopener">management and entrepreneurship undergraduate programs</a> to compare current degrees, certificates, and next steps.</p>
+        </div>
+
+        <h3>Research That Changes Practice</h3>
+        <ul class="research-list">
+          <li><strong>Ethical voice:</strong> Ned Wellman's research shows how complaints, suggestions, and ethical questions can help employees redirect questionable behavior.</li>
+          <li><strong>Goal setting:</strong> Mike Baer and David Welsh examine how imposed or unattainable goals can increase anxiety, burnout, reduced citizenship, and unethical choices.</li>
+          <li><strong>Leadership and responsibility:</strong> David Waldman studies socially responsible leadership, paradoxes, technology transfer, and how leaders mobilize people around goals.</li>
+          <li><strong>Identity and stigma:</strong> Blake Ashforth and Milo Wang examine how people and organizations experience and manage stigmatized work or identities.</li>
+          <li><strong>Difference and visibility:</strong> Heewon Chae and Jonathan Bundy study atypical organizations, evaluation, strategic nonconformity, and the benefits and burdens of CEO celebrity.</li>
+        </ul>
+
+        <h3>Skills, Careers, and Ways to Participate</h3>
+        <p>Students build communication, collaboration, leadership, critical thinking, negotiation, conflict management, business-model design, HR judgment, analytics, experimentation, and ethical decision-making. Those skills can support careers in management, consulting, organizational change, HR, recruiting, training, employee relations, retail leadership, nonprofit work, startups, product development, and innovation inside established organizations.</p>
+        <p>Chris Myers describes entrepreneurship as learning by doing: validating ideas, raising resources, managing teams, responding to setbacks, and changing with the market. His experience starting and later selling a business illustrates how entrepreneurial learning travels between school, a venture, and a later teaching career.</p>
+        <ul>
+          <li>Apply management, entrepreneurship, or HR concepts through an internship and receive approved upper-division credit.</li>
+          <li>Join the ASU student chapter of the Society for Human Resource Management for speakers, panels, networking, and company tours.</li>
+          <li>Participate in eligible behavioral-lab studies that examine individual, team, and organizational behavior.</li>
+          <li>Explore the Center for Entrepreneurship and New Business Design, including venture learning and startup support.</li>
+          <li>Use W. P. Carey career coaching, events, and student organizations to test interests and build professional relationships.</li>
+        </ul>
+        <p>Explore <a href="https://wpcarey.asu.edu/management-degrees/student-life" target="_blank" rel="noopener">student life</a>, <a href="https://wpcarey.asu.edu/management-degrees/internship-information" target="_blank" rel="noopener">internships</a>, and the <a href="https://entrepreneurship.wpcarey.asu.edu/learn" target="_blank" rel="noopener">Center for Entrepreneurship</a>.</p>
+
+        <div class="ai-note">
+          <h3>AI at Work: Exploring a Path</h3>
+          <p>Students can ask AI to compare roles, surface transferable skills, or draft questions for an informational interview. They should verify current program requirements and labor-market claims with official sources, then use conversations, coursework, clubs, internships, and projects as real evidence of fit.</p>
+        </div>
+      </article>
+
+      <article class="tab-panel" id="panel-decision" role="tabpanel" tabindex="0" aria-labelledby="tab-decision" hidden>
+        <h2>Management and Entrepreneurship Decision Point</h2>
+        <p>Copper Cup's first week creates employee stress and customer confusion. Elena must adjust the launch without abandoning the cooperative promise or rewarding unsupported claims.</p>
+
+        <h3 class="artifact-heading">Artifact: Employee Message Thread</h3>
+        <ul class="message-thread" aria-label="Copper Cup employee launch messages">
+          <li><span class="speaker">Elena, owner</span><span>Launch week starts Monday. The goal is to introduce the roast, not pressure every customer. Accuracy matters more than hype.</span></li>
+          <li><span class="speaker">Jordan, shift lead</span><span>Morning rush is my concern. We cannot explain a sourcing model while ten people are waiting unless we have a short version.</span></li>
+          <li><span class="speaker">Priya, barista</span><span>Can we get exact wording for what "supports farmers" means? I do not want to overpromise.</span></li>
+          <li><span class="speaker">Maya, student employee</span><span>Maybe we use one question at the register and send interested customers to the QR card for the full story.</span></li>
+          <li><span class="speaker">Sam, barista</span><span>What if someone asks whether it is fair trade?</span></li>
+          <li><span class="speaker">Elena, owner</span><span>Say: "This is a direct cooperative pilot, not a fair trade certified coffee. Here is what we verify and what we are still learning."</span></li>
+        </ul>
+
+        <h3>Option A: Push Harder on the Sales Goal</h3>
+        <p><strong>Business upside:</strong> May increase short-term revenue and move inventory quickly.</p>
+        <p><strong>Business risk:</strong> Can increase burnout, exaggerated claims, narrow attention, and weaker teamwork.</p>
+        <p><strong>Social question:</strong> When does a performance goal become harmful?</p>
+
+        <h3>Option B: Slow the Launch and Retrain</h3>
+        <p><strong>Business upside:</strong> Improves employee confidence, accuracy, and consistent customer communication.</p>
+        <p><strong>Business risk:</strong> Reduces immediate momentum and may delay learning from live customer behavior.</p>
+        <p><strong>Social question:</strong> Is slower execution justified when the product story involves social responsibility?</p>
+
+        <h3>Option C: Keep the Pilot Active and Simplify Expectations</h3>
+        <p><strong>Business upside:</strong> Protects momentum while using a short script, clear claim boundary, employee voice, and weekly review.</p>
+        <p><strong>Business risk:</strong> Some customers may learn less unless they choose to engage with the fuller story.</p>
+        <p><strong>Social question:</strong> How can Copper Cup respect workload and customers' right to accurate information?</p>
+
+        <div class="callout">
+          <h3>Case Prompt</h3>
+          <p>Recommend one launch adjustment. Use planning, organizing, leading, controlling, entrepreneurship, HR, goal setting, or ethical voice to explain your choice. Identify one stakeholder who benefits and one who may bear a cost.</p>
+        </div>
+      </article>
+
+      <article class="tab-panel" id="panel-practice" role="tabpanel" tabindex="0" aria-labelledby="tab-practice" hidden>
+        <h2>Interactive Practice</h2>
+        <p>Complete all four function matches and six case decisions, then select <strong>Check My Management Reading</strong>. You may revise and check again before submitting to Canvas.</p>
+
+        <form id="practice-form" novalidate>
+          <section aria-labelledby="function-practice-heading">
+            <h3 id="function-practice-heading">1-4. Match the Four Functions</h3>
+            <div class="match-grid">
+              <div class="match-row">
+                <label for="function-goal">Set the launch goal, timeline, standards, and alternatives.</label>
+                <select id="function-goal" name="functionGoal" required>
+                  <option value="">Select a function</option>
+                  <option value="planning">Planning</option>
+                  <option value="organizing">Organizing</option>
+                  <option value="leading">Leading</option>
+                  <option value="controlling">Controlling</option>
+                </select>
+              </div>
+              <div class="match-row">
+                <label for="function-roles">Assign training, inventory, claim, and shift responsibilities.</label>
+                <select id="function-roles" name="functionRoles" required>
+                  <option value="">Select a function</option>
+                  <option value="planning">Planning</option>
+                  <option value="organizing">Organizing</option>
+                  <option value="leading">Leading</option>
+                  <option value="controlling">Controlling</option>
+                </select>
+              </div>
+              <div class="match-row">
+                <label for="function-team">Explain the purpose, invite employee input, and coach the team.</label>
+                <select id="function-team" name="functionTeam" required>
+                  <option value="">Select a function</option>
+                  <option value="planning">Planning</option>
+                  <option value="organizing">Organizing</option>
+                  <option value="leading">Leading</option>
+                  <option value="controlling">Controlling</option>
+                </select>
+              </div>
+              <div class="match-row">
+                <label for="function-results">Compare sales, wait time, workload, and claims with standards.</label>
+                <select id="function-results" name="functionResults" required>
+                  <option value="">Select a function</option>
+                  <option value="planning">Planning</option>
+                  <option value="organizing">Organizing</option>
+                  <option value="leading">Leading</option>
+                  <option value="controlling">Controlling</option>
+                </select>
+              </div>
+            </div>
+          </section>
+
+          <section class="question-card" data-question="goal" data-correct="balanced">
+            <h3>5. Design the Launch Goal</h3>
+            <fieldset>
+              <legend>Which approach best connects planning and goal setting to responsible performance?</legend>
+              <label class="choice-row"><input type="radio" name="goal" value="stretch" required> Keep a fixed sales target and reward any script that moves customers through the line.</label>
+              <label class="choice-row"><input type="radio" name="goal" value="balanced"> Set a challenging pilot target with employee input, support, claim standards, and workload measures.</label>
+              <label class="choice-row"><input type="radio" name="goal" value="remove"> Remove performance goals entirely and let each shift define success after the launch.</label>
+            </fieldset>
+          </section>
+
+          <section class="question-card" data-question="leadership" data-correct="participative">
+            <h3>6. Choose a Leadership Response</h3>
+            <fieldset>
+              <legend>Which response best fits the launch problem?</legend>
+              <label class="choice-row"><input type="radio" name="leadership" value="directive" required> Require one script in every situation and treat employee questions as resistance to the launch.</label>
+              <label class="choice-row"><input type="radio" name="leadership" value="participative"> Invite shift input, explain the purpose, and coach employees on accurate customer conversations.</label>
+              <label class="choice-row"><input type="radio" name="leadership" value="avoid"> Hand the full launch to employees and avoid setting standards or resolving workflow conflicts.</label>
+            </fieldset>
+          </section>
+
+          <section class="question-card" data-question="control" data-correct="sequence">
+            <h3>7. Apply the Control Process</h3>
+            <fieldset>
+              <legend>Which sequence correctly applies the five-step control process?</legend>
+              <label class="choice-row"><input type="radio" name="control" value="sequence" required> Set standards, monitor results, compare performance, communicate deviations, and correct or reinforce.</label>
+              <label class="choice-row"><input type="radio" name="control" value="late"> Collect results, change the goal, assign blame, announce the standard, and stop measuring.</label>
+              <label class="choice-row"><input type="radio" name="control" value="sales"> Track sales, ignore other signals, reward the top shift, and repeat the launch unchanged.</label>
+            </fieldset>
+          </section>
+
+          <section class="question-card" data-question="hr" data-correct="structured">
+            <h3>8. Select and Support Employees</h3>
+            <fieldset>
+              <legend>Which selection approach best combines HR judgment and legal awareness?</legend>
+              <label class="choice-row"><input type="radio" name="hr" value="friend" required> Hire referrals who feel familiar, skip documentation, and decide whether training is needed later.</label>
+              <label class="choice-row"><input type="radio" name="hr" value="structured"> Use job-related criteria, structured interviews, a work sample, consistent records, and lawful post-offer steps.</label>
+              <label class="choice-row"><input type="radio" name="hr" value="speed"> Choose the fastest applicants, ask different personal questions, and use instinct as the final screen.</label>
+            </fieldset>
+          </section>
+
+          <section class="question-card" data-question="voice" data-correct="respond">
+            <h3>9. Respond to Ethical Voice</h3>
+            <fieldset>
+              <legend>Priya questions the phrase "supports farmers." What should Elena do?</legend>
+              <label class="choice-row"><input type="radio" name="voice" value="dismiss" required> Defend the approved sign, remind Priya who owns the company, and continue the launch.</label>
+              <label class="choice-row"><input type="radio" name="voice" value="respond"> Thank her, examine the evidence, revise the claim, and keep the voice channel open.</label>
+              <label class="choice-row"><input type="radio" name="voice" value="delay"> Save the concern for a later survey and keep the current wording during launch week.</label>
+            </fieldset>
+          </section>
+
+          <section class="question-card" data-question="experiment" data-correct="learn">
+            <h3>10. Make the Entrepreneurial Move</h3>
+            <fieldset>
+              <legend>Sales are below forecast, but questions and QR scans are high. What is the strongest next step?</legend>
+              <label class="choice-row"><input type="radio" name="experiment" value="scale" required> Scale the same offer immediately because customer curiosity proves the value proposition is working.</label>
+              <label class="choice-row"><input type="radio" name="experiment" value="learn"> Interview customers and employees, adjust the offer or message, define a new test, and learn.</label>
+              <label class="choice-row"><input type="radio" name="experiment" value="stop"> End the pilot immediately because missing the sales forecast proves the opportunity has disappeared.</label>
+            </fieldset>
+          </section>
+
+          <div class="optional-box">
+            <h3>Optional Take-Away Notes</h3>
+            <p><strong><em>Not scored.</em></strong> These responses stay in your browser and are included when you print or save your take-away as a PDF.</p>
+            <label for="launch-recommendation">Which launch adjustment would you recommend?</label>
+            <select id="launch-recommendation" name="launchRecommendation">
+              <option value="">Select an adjustment</option>
+              <option value="Push harder on the sales goal">Push harder on the sales goal</option>
+              <option value="Slow the launch and retrain">Slow the launch and retrain</option>
+              <option value="Keep the pilot active and simplify expectations">Keep the pilot active and simplify expectations</option>
+            </select>
+            <label for="reflection-note">Reflection note</label>
+            <textarea id="reflection-note" name="reflectionNote" placeholder="Who benefits from your recommendation, and who may bear a cost?"></textarea>
+          </div>
+
+          <div id="form-error" class="error-message" role="alert" tabindex="-1" hidden></div>
+          <div class="controls">
+            <button id="check-practice" type="submit">Check My Management Reading</button>
+            <button class="secondary-button" id="reset-practice" type="button">Reset</button>
+          </div>
+        </form>
+
+        <section id="practice-feedback" class="feedback" aria-live="polite" tabindex="-1" hidden>
+          <h3>Management Feedback</h3>
+          <p id="score-line"></p>
+          <div id="feedback-list"></div>
+        </section>
+
+        <div class="completion-controls" id="completion-controls">
+          <h3>Review and Submit</h3>
+          <p id="completion-message">Complete all 10 objective checks to activate the Canvas review and submission step.</p>
+          <button id="review-submit" type="button" disabled>Review and Submit to Canvas</button>
+        </div>
+      </article>
+
+      <article class="tab-panel" id="panel-submit" role="tabpanel" tabindex="0" aria-labelledby="tab-submit" hidden>
+        <h2>Required Final Step: Submit Your Score to Canvas</h2>
+        <p>Your objective checks are complete. Review the summary and then select the submission button. Your score is not sent automatically.</p>
+
+        <div class="score-summary" aria-label="Completion summary">
+          <div class="summary-item">
+            <strong id="final-score">0/100</strong>
+            Current objective score
+          </div>
+          <div class="summary-item">
+            <strong>10/10</strong>
+            Objective checks complete
+          </div>
+          <div class="summary-item">
+            <strong>Unscored</strong>
+            Recommendation and reflection
+          </div>
+        </div>
+
+        <div class="callout">
+          <h3>Management and Entrepreneurship Takeaway</h3>
+          <p>A responsible launch joins opportunity with execution. Managers plan, organize, lead, and control. HR builds and protects the people system. Entrepreneurs test assumptions and adapt. Ethical voice helps the organization correct what formal plans fail to anticipate.</p>
+          <p><strong>Your launch recommendation:</strong> <span id="selected-recommendation">No adjustment selected.</span></p>
+          <p><strong>Your reflection:</strong> <span id="reflection-summary">No reflection note entered.</span></p>
+        </div>
+
+        <button class="submit-button" id="submit-score" type="button">Submit Score to Canvas</button>
+        <button class="secondary-button" id="print-takeaway-button" type="button">Print to PDF</button>
+
+        <div class="submission-status" id="submission-status" role="status" aria-live="polite">Score not yet submitted.</div>
+      </article>
+    </main>
+
+    <section class="print-takeaway" id="print-takeaway" aria-label="Printable management and entrepreneurship take-away">
+      <p><strong>WPC 150</strong></p>
+      <h1>The Story of the Bean: Management and Entrepreneurship Take-Away</h1>
+
+      <div class="print-summary">
+        <div><strong id="print-score">0 out of 100</strong>Objective score</div>
+        <div><strong id="print-checked">0 of 10</strong>Objective checks</div>
+        <div><strong id="print-submission">Not confirmed</strong>Canvas submission</div>
+      </div>
+
+      <h2>Key Takeaway</h2>
+      <p>A responsible launch joins opportunity with execution. Managers plan, organize, lead, and control. HR builds and protects the people system. Entrepreneurs test assumptions and adapt. Ethical voice helps the organization correct what formal plans fail to anticipate.</p>
+
+      <h2>Your Optional Notes</h2>
+      <p><strong>Launch recommendation:</strong> <span id="print-recommendation">No adjustment selected.</span></p>
+      <p><strong>Reflection:</strong> <span id="print-reflection">No reflection note entered.</span></p>
+
+      <h2>Objective Results</h2>
+      <ol class="print-results" id="print-results"></ol>
+    </section>
+  </div>
+
+  <script>
+    (function () {
+      "use strict";
+
+      const activity = document.getElementById("mgt-activity");
+      const tabs = Array.from(activity.querySelectorAll('[role="tab"]'));
+      const panels = Array.from(activity.querySelectorAll('[role="tabpanel"]'));
+
+      function visibleTabs() {
+        return tabs.filter(tab => !tab.hidden);
+      }
+
+      function activateTab(tab, moveFocus) {
+        if (!tab || tab.hidden) return;
+        tabs.forEach(item => {
+          const selected = item === tab;
+          item.setAttribute("aria-selected", selected ? "true" : "false");
+          item.tabIndex = selected ? 0 : -1;
+        });
+        panels.forEach(panel => {
+          panel.hidden = panel.id !== tab.getAttribute("aria-controls");
+        });
+        if (moveFocus) tab.focus();
+      }
+
+      tabs.forEach(tab => {
+        tab.addEventListener("click", () => activateTab(tab, false));
+        tab.addEventListener("keydown", event => {
+          const available = visibleTabs();
+          const index = available.indexOf(tab);
+          let nextIndex = null;
+          if (event.key === "ArrowRight") nextIndex = (index + 1) % available.length;
+          if (event.key === "ArrowLeft") nextIndex = (index - 1 + available.length) % available.length;
+          if (event.key === "Home") nextIndex = 0;
+          if (event.key === "End") nextIndex = available.length - 1;
+          if (nextIndex !== null) {
+            event.preventDefault();
+            activateTab(available[nextIndex], true);
+          }
+        });
+      });
+
+      let scormAPI = null;
+      let scormInitialized = false;
+      let scoreSubmitted = false;
+
+      function findAPI(startWindow) {
+        let current = startWindow;
+        let attempts = 0;
+        while (current && attempts < 8) {
+          try {
+            if (current.API) return current.API;
+            if (current.parent === current) break;
+            current = current.parent;
+          } catch (error) {
+            break;
+          }
+          attempts += 1;
+        }
+        return null;
+      }
+
+      function scormInit() {
+        scormAPI = findAPI(window) || (window.opener ? findAPI(window.opener) : null);
+        if (!scormAPI) return false;
+        const initialized = scormAPI.LMSInitialize("");
+        scormInitialized = initialized === true || initialized === "true";
+        if (!scormInitialized) return false;
+        const status = scormAPI.LMSGetValue("cmi.core.lesson_status");
+        if (!status || status === "not attempted") {
+          scormAPI.LMSSetValue("cmi.core.lesson_status", "incomplete");
+          scormAPI.LMSCommit("");
+        }
+        return true;
+      }
+
+      function submitToCanvas(score) {
+        if (!scormInitialized || !scormAPI) {
+          return { sent: false, message: `Local preview: your score is ${score} out of 100, but no Canvas SCORM connection was found.` };
+        }
+        scormAPI.LMSSetValue("cmi.core.score.min", "0");
+        scormAPI.LMSSetValue("cmi.core.score.max", "100");
+        scormAPI.LMSSetValue("cmi.core.score.raw", String(score));
+        scormAPI.LMSSetValue("cmi.core.lesson_status", "completed");
+        const committed = scormAPI.LMSCommit("");
+        const sent = committed === true || committed === "true";
+        return sent
+          ? { sent: true, message: `Score submitted to Canvas: ${score} out of 100.` }
+          : { sent: false, message: `Canvas did not confirm the submission. Your current score is ${score} out of 100; please try again.` };
+      }
+
+      window.addEventListener("load", scormInit);
+      window.addEventListener("beforeunload", () => {
+        if (scormInitialized && scormAPI) scormAPI.LMSFinish("");
+      });
+
+      const form = document.getElementById("practice-form");
+      const formError = document.getElementById("form-error");
+      const practiceFeedback = document.getElementById("practice-feedback");
+      const scoreLine = document.getElementById("score-line");
+      const feedbackList = document.getElementById("feedback-list");
+      const completionMessage = document.getElementById("completion-message");
+      const reviewSubmitButton = document.getElementById("review-submit");
+      const submitTab = document.getElementById("tab-submit");
+      const submitButton = document.getElementById("submit-score");
+      const submissionStatus = document.getElementById("submission-status");
+      const finalScore = document.getElementById("final-score");
+      const checkButton = document.getElementById("check-practice");
+      const resetButton = document.getElementById("reset-practice");
+      let currentScore = 0;
+      let practiceChecked = false;
+
+      const correctFunctions = {
+        functionGoal: "planning",
+        functionRoles: "organizing",
+        functionTeam: "leading",
+        functionResults: "controlling"
+      };
+
+      const decisionKeys = ["goal", "leadership", "control", "hr", "voice", "experiment"];
+      const feedbackMessages = {
+        goal: {
+          correct: "The goal remains challenging while adding employee input, support, ethical boundaries, and measures beyond sales.",
+          incorrect: "A sales-only target can narrow attention and increase pressure. Removing every goal also prevents coordinated learning."
+        },
+        leadership: {
+          correct: "A participative and coaching response uses shift knowledge, explains purpose, and still gives employees clear standards.",
+          incorrect: "Leadership requires direction and support. Uniform control or complete withdrawal ignores the judgment this launch needs."
+        },
+        control: {
+          correct: "The process begins with standards and moves through monitoring, comparison, communication, and corrective or reinforcing action.",
+          incorrect: "Control is a learning cycle, not late blame or a sales-only scoreboard. The sequence and the evidence both matter."
+        },
+        hr: {
+          correct: "Job-related criteria, structured evidence, consistent records, and lawful screening support both decision quality and fair treatment.",
+          incorrect: "Similarity, speed, and instinct are weak substitutes for consistent, job-related, documented selection evidence."
+        },
+        voice: {
+          correct: "Ethical voice works when leaders examine the concern, improve the practice, and protect future speaking up.",
+          incorrect: "Delaying or punishing the concern preserves the immediate wording but weakens evidence, trust, and future voice."
+        },
+        experiment: {
+          correct: "Mixed signals call for customer and employee discovery, a revised hypothesis, and another measured test.",
+          incorrect: "Curiosity is not proof of demand, and one missed forecast is not proof that the opportunity has disappeared."
+        }
+      };
+
+      function selectedRadio(name) {
+        return form.querySelector(`input[name="${name}"]:checked`);
+      }
+
+      function missingFields() {
+        const missing = [];
+        Object.keys(correctFunctions).forEach(name => {
+          if (!form.elements[name].value) missing.push("four function matches");
+        });
+        decisionKeys.forEach(name => {
+          if (!selectedRadio(name)) missing.push(`decision ${decisionKeys.indexOf(name) + 5}`);
+        });
+        return Array.from(new Set(missing));
+      }
+
+      function functionResults() {
+        return Object.entries(correctFunctions).map(([name, correct]) => ({
+          name,
+          correct: form.elements[name].value === correct
+        }));
+      }
+
+      function decisionResults() {
+        return decisionKeys.map(name => {
+          const card = form.querySelector(`[data-question="${name}"]`);
+          const selected = selectedRadio(name);
+          return {
+            name,
+            correct: Boolean(selected && selected.value === card.dataset.correct)
+          };
+        });
+      }
+
+      function updateOptionalSummary() {
+        const recommendation = document.getElementById("launch-recommendation").value || "No adjustment selected.";
+        const reflection = document.getElementById("reflection-note").value.trim() || "No reflection note entered.";
+        document.getElementById("selected-recommendation").textContent = recommendation;
+        document.getElementById("reflection-summary").textContent = reflection;
+      }
+
+      function invalidatePractice() {
+        if (!practiceChecked || scoreSubmitted) return;
+        practiceChecked = false;
+        currentScore = 0;
+        practiceFeedback.hidden = true;
+        feedbackList.replaceChildren();
+        reviewSubmitButton.disabled = true;
+        submitTab.hidden = true;
+        finalScore.textContent = "0/100";
+        completionMessage.textContent = "Complete all 10 objective checks to activate the Canvas review and submission step.";
+        submissionStatus.textContent = "Score not yet submitted.";
+        submissionStatus.className = "submission-status";
+        if (submitTab.getAttribute("aria-selected") === "true") {
+          activateTab(document.getElementById("tab-practice"), false);
+        }
+      }
+
+      const objectiveControls = Array.from(form.querySelectorAll('select[required], input[type="radio"][required], .question-card input[type="radio"]'));
+      objectiveControls.forEach(control => control.addEventListener("change", invalidatePractice));
+
+      form.addEventListener("submit", event => {
+        event.preventDefault();
+        const missing = missingFields();
+        if (missing.length) {
+          formError.textContent = `Please complete: ${missing.join(", ")}.`;
+          formError.hidden = false;
+          formError.focus();
+          return;
+        }
+
+        formError.hidden = true;
+        feedbackList.replaceChildren();
+        const functions = functionResults();
+        const decisions = decisionResults();
+        currentScore = [...functions, ...decisions].filter(result => result.correct).length * 10;
+        practiceChecked = true;
+
+        const functionCorrect = functions.filter(result => result.correct).length;
+        const functionFeedback = document.createElement("p");
+        functionFeedback.innerHTML = `<strong>Four functions:</strong> ${functionCorrect} of 4 correct. Planning sets direction, organizing structures work, leading builds commitment, and controlling compares results with standards.`;
+        feedbackList.appendChild(functionFeedback);
+
+        decisions.forEach(result => {
+          const paragraph = document.createElement("p");
+          paragraph.innerHTML = `<strong>${result.name.charAt(0).toUpperCase() + result.name.slice(1)}:</strong> ${feedbackMessages[result.name][result.correct ? "correct" : "incorrect"]}`;
+          feedbackList.appendChild(paragraph);
+        });
+
+        scoreLine.innerHTML = `<strong>Practice score: ${currentScore} out of 100.</strong> This score has not been submitted to Canvas.`;
+        finalScore.textContent = `${currentScore}/100`;
+        practiceFeedback.hidden = false;
+        reviewSubmitButton.disabled = false;
+        submitTab.hidden = false;
+        completionMessage.innerHTML = `All 10 objective checks are complete. Your current score is <strong><span id="practice-score">${currentScore}</span> out of 100</strong>. Review your results before completing the required Canvas submission step.`;
+        updateOptionalSummary();
+        practiceFeedback.focus();
+      });
+
+      reviewSubmitButton.addEventListener("click", () => {
+        if (!practiceChecked) return;
+        updateOptionalSummary();
+        activateTab(submitTab, true);
+        document.getElementById("panel-submit").scrollIntoView({ block: "start" });
+      });
+
+      submitButton.addEventListener("click", () => {
+        if (!practiceChecked) return;
+        const result = submitToCanvas(currentScore);
+        submissionStatus.textContent = result.message;
+        submissionStatus.className = `submission-status${result.sent ? " success" : ""}`;
+        scoreSubmitted = result.sent;
+        if (result.sent) {
+          submitButton.disabled = true;
+          submitButton.textContent = "Score Submitted to Canvas";
+          objectiveControls.forEach(control => { control.disabled = true; });
+          checkButton.disabled = true;
+          resetButton.disabled = true;
+        }
+      });
+
+      resetButton.addEventListener("click", () => {
+        form.reset();
+        practiceChecked = false;
+        currentScore = 0;
+        formError.hidden = true;
+        practiceFeedback.hidden = true;
+        feedbackList.replaceChildren();
+        reviewSubmitButton.disabled = true;
+        submitTab.hidden = true;
+        finalScore.textContent = "0/100";
+        completionMessage.textContent = "Complete all 10 objective checks to activate the Canvas review and submission step.";
+        submissionStatus.textContent = "Score not yet submitted.";
+        submissionStatus.className = "submission-status";
+      });
+
+      function preparePrintTakeaway() {
+        const recommendation = document.getElementById("launch-recommendation").value || "No adjustment selected.";
+        const reflection = document.getElementById("reflection-note").value.trim() || "No reflection note entered.";
+        document.getElementById("print-score").textContent = `${currentScore} out of 100`;
+        document.getElementById("print-checked").textContent = practiceChecked ? "10 of 10" : "0 of 10";
+        document.getElementById("print-submission").textContent = scoreSubmitted ? "Confirmed" : "Not confirmed";
+        document.getElementById("print-recommendation").textContent = recommendation;
+        document.getElementById("print-reflection").textContent = reflection;
+
+        const labels = [
+          "Planning function",
+          "Organizing function",
+          "Leading function",
+          "Controlling function",
+          "Goal design",
+          "Leadership response",
+          "Control process",
+          "Employee selection",
+          "Ethical voice",
+          "Entrepreneurial learning"
+        ];
+        const results = [...functionResults(), ...decisionResults()];
+        const printResults = document.getElementById("print-results");
+        printResults.replaceChildren();
+        results.forEach((result, index) => {
+          const item = document.createElement("li");
+          item.textContent = `${labels[index]}: ${practiceChecked ? (result.correct ? "Correct" : "Review recommended") : "Not checked"}`;
+          printResults.appendChild(item);
+        });
+      }
+
+      document.getElementById("print-takeaway-button").addEventListener("click", () => {
+        preparePrintTakeaway();
+        window.print();
+      });
+
+      window.addEventListener("beforeprint", preparePrintTakeaway);
+    }());
+  </script>
+</body>
+</html>
