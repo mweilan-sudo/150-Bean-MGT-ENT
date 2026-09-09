@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Story of the Bean: Management and Entrepreneurship Lens</title>
+  <title>Story of the Bean: Management and Entrepreneurship Lens (2026 Refresh)</title>
   <link rel="icon" href="data:,">
   <style>
     :root {
@@ -200,7 +200,7 @@
     #mgt-activity .tab-button {
       min-height: 52px;
       margin: 0 0 -3px;
-      padding: 12px 16px;
+      padding: 12px 11px;
       border: 2px solid transparent;
       border-bottom: 3px solid var(--line);
       border-radius: 7px 7px 0 0;
@@ -314,6 +314,61 @@
       color: var(--asu-maroon);
       font-size: 1.4rem;
       font-weight: 700;
+    }
+
+    #mgt-activity .skills-grid,
+    #mgt-activity .role-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin: 18px 0 24px;
+    }
+
+    #mgt-activity .skills-grid section,
+    #mgt-activity .role-grid section {
+      min-height: 155px;
+      padding: 15px;
+      border: 1px solid var(--line);
+      border-top: 6px solid var(--asu-maroon);
+      background: var(--asu-gray-7);
+    }
+
+    #mgt-activity .role-grid section {
+      border-top-color: var(--asu-blue-dark);
+    }
+
+    #mgt-activity .selection-steps {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-auto-rows: 1fr;
+      gap: 10px;
+      margin: 18px 0 24px;
+      padding: 0;
+      list-style: none;
+      counter-reset: selection-step;
+    }
+
+    #mgt-activity .selection-steps li {
+      min-height: 145px;
+      margin: 0;
+      padding: 13px;
+      border: 1px solid var(--line);
+      background: var(--asu-white);
+      counter-increment: selection-step;
+    }
+
+    #mgt-activity .selection-steps li::before {
+      display: block;
+      width: 31px;
+      height: 31px;
+      margin-bottom: 8px;
+      border-radius: 50%;
+      background: var(--asu-gold);
+      color: var(--asu-black);
+      content: counter(selection-step);
+      font-weight: 700;
+      line-height: 31px;
+      text-align: center;
     }
 
     #mgt-activity .control-steps {
@@ -598,7 +653,10 @@
 
     @media (max-width: 930px) {
       #mgt-activity .function-grid,
-      #mgt-activity .control-steps {
+      #mgt-activity .control-steps,
+      #mgt-activity .skills-grid,
+      #mgt-activity .role-grid,
+      #mgt-activity .selection-steps {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
@@ -631,6 +689,9 @@
 
       #mgt-activity .function-grid,
       #mgt-activity .control-steps,
+      #mgt-activity .skills-grid,
+      #mgt-activity .role-grid,
+      #mgt-activity .selection-steps,
       #mgt-activity .match-grid {
         grid-template-columns: 1fr;
       }
@@ -732,152 +793,135 @@
       <div class="header-inner">
         <p class="eyebrow">WPC 150 Case Segment</p>
         <h1>The Story of the Bean: Management and Entrepreneurship Lens</h1>
-        <p>Examine how Copper Cup could turn a proposed coffee pilot into organized, ethical, and adaptable work.</p>
+        <p>Decide how Copper Cup should organize, staff, lead, and evaluate a new traceability role.</p>
       </div>
     </header>
 
     <main id="mgt-main">
       <section class="activity-intro" aria-labelledby="activity-heading">
         <h2 id="activity-heading">How This Chapter Works</h2>
-        <p>Read the case tabs, inspect the launch artifacts, and complete all 10 objective checks. You may revise your work before the required Canvas submission step.</p>
+        <p>Read the independent case narrative, inspect the management and hiring evidence, and complete all 10 objective checks. You may revise your work before the required Canvas submission step.</p>
         <div class="scoring-note">
-          <strong>Canvas scoring:</strong> Four management-function matches and six evidence-based decisions are worth 10 points each. Your launch recommendation and reflection are optional and unscored.
+          <strong>Canvas scoring:</strong> Four management-function matches and six evidence-based decisions are worth 10 points each. Your staffing recommendation and safeguard are optional and unscored.
         </div>
       </section>
 
       <nav class="tab-list" role="tablist" aria-label="Management and entrepreneurship case sections">
         <button class="tab-button" id="tab-handoff" type="button" role="tab" aria-selected="true" aria-controls="panel-handoff">Case Context</button>
-        <button class="tab-button" id="tab-narrative" type="button" role="tab" aria-selected="false" aria-controls="panel-narrative" tabindex="-1">MGT&amp;ENT Narrative</button>
+        <button class="tab-button" id="tab-narrative" type="button" role="tab" aria-selected="false" aria-controls="panel-narrative" tabindex="-1">Narrative</button>
         <button class="tab-button" id="tab-functions" type="button" role="tab" aria-selected="false" aria-controls="panel-functions" tabindex="-1">Four Functions</button>
-        <button class="tab-button" id="tab-people" type="button" role="tab" aria-selected="false" aria-controls="panel-people" tabindex="-1">People &amp; HR</button>
+        <button class="tab-button" id="tab-skills" type="button" role="tab" aria-selected="false" aria-controls="panel-skills" tabindex="-1">Skills &amp; Roles</button>
+        <button class="tab-button" id="tab-people" type="button" role="tab" aria-selected="false" aria-controls="panel-people" tabindex="-1">HR &amp; Law</button>
         <button class="tab-button" id="tab-paths" type="button" role="tab" aria-selected="false" aria-controls="panel-paths" tabindex="-1">Paths &amp; Research</button>
-        <button class="tab-button" id="tab-decision" type="button" role="tab" aria-selected="false" aria-controls="panel-decision" tabindex="-1">Launch Decision</button>
+        <button class="tab-button" id="tab-decision" type="button" role="tab" aria-selected="false" aria-controls="panel-decision" tabindex="-1">Staffing Decision</button>
         <button class="tab-button" id="tab-practice" type="button" role="tab" aria-selected="false" aria-controls="panel-practice" tabindex="-1">Practice</button>
         <button class="tab-button" id="tab-submit" type="button" role="tab" aria-selected="false" aria-controls="panel-submit" tabindex="-1" hidden>Submit</button>
       </nav>
 
       <article class="tab-panel" id="panel-handoff" role="tabpanel" tabindex="0" aria-labelledby="tab-handoff">
         <h2>Case Context</h2>
-        <p>Copper Cup is preparing a limited operational test for <strong>The Story of the Bean</strong>. For this scenario, the draft plan uses a one-year direct cooperative agreement and modest traceability tools. Before making a longer-term commitment, owner Elena Torres wants to learn whether the team can deliver the product accurately, responsibly, and consistently during a busy cafe launch.</p>
-        <p>The proposal looks promising on paper. Now Copper Cup has to determine how people, roles, goals, and operating systems would make it work.</p>
+        <p>Copper Cup Coffee is a small independent cafe considering a 12-week Story of the Bean pilot. The concept would help customers follow a featured coffee from farm and cooperative to roaster and cup. No other department's decision is assumed in this module. The management team must decide for itself whether the work is ready, who should perform it, and how the cafe will learn from the trial.</p>
+        <p>Owner Elena Torres has identified a possible new role: <strong>Traceability and Customer Education Coordinator</strong>. The coordinator would verify sourcing evidence, maintain approved customer-facing language, coach employees, and report what the pilot is teaching the company. The work is promising, but the role, authority, staffing status, and success standards are still unsettled.</p>
 
         <div class="evidence-note">
-          <h3>Launch Signal 1: The Morning Rush</h3>
-          <p>Customers want the story, but the line slows when employees try to explain the sourcing relationship. Some employees shorten the message; others add claims that Copper Cup has not verified.</p>
+          <h3>Operating Signal 1: Inconsistent Claims</h3>
+          <p>Employees are enthusiastic, but their explanations vary. One says the coffee is “direct trade.” Another says “farmers receive every premium dollar.” Copper Cup does not yet have evidence supporting either statement.</p>
         </div>
 
         <div class="evidence-note">
-          <h3>Launch Signal 2: A Difficult Goal</h3>
-          <p>The launch dashboard calls for 420 featured drinks per week. Employees worry that a sales-only target will pressure them to oversell the product and ignore customer fit, workload, or evidence quality.</p>
+          <h3>Operating Signal 2: A Staffing Shortcut</h3>
+          <p>A manager suggests bringing in an unpaid student intern to maintain the evidence library, cover two weekly rush shifts, and replace the seasonal employee Copper Cup had planned to hire.</p>
         </div>
-
-        <p>Elena asks Maya a new question: "How do we keep the promise to the cooperative, customers, and employees when the work is more complicated than the plan?"</p>
 
         <div class="callout">
-          <p><strong>Management and entrepreneurship decision:</strong> How should Copper Cup organize the launch, lead employees, control quality, and learn from the pilot without turning purpose into pressure?</p>
+          <p><strong>Your management question:</strong> How should Copper Cup define, staff, manage, and evaluate the coordinator role while protecting employees, customers, and the integrity of the bean's story?</p>
         </div>
 
-        <div class="ai-note">
-          <h3>AI at Work: Turning a Plan Into Tasks</h3>
-          <p>Maya can ask AI to draft a responsibility chart, training outline, or experiment plan. She still has to verify staffing assumptions, ask employees what the workflow misses, and reject metrics that reward sales while hiding inaccurate claims or burnout.</p>
-        </div>
+        <h3>Learning Focus</h3>
+        <ul>
+          <li>Apply planning, organizing, leading, and controlling to a management problem.</li>
+          <li>Distinguish forms of planning, management skills, and managerial roles.</li>
+          <li>Explain how employment law and a six-step selection process shape staffing.</li>
+          <li>Connect management, entrepreneurship, HR, careers, and research to practice.</li>
+        </ul>
       </article>
 
       <article class="tab-panel" id="panel-narrative" role="tabpanel" tabindex="0" aria-labelledby="tab-narrative" hidden>
-        <h2>Management and Entrepreneurship: When the Bean Becomes Work</h2>
-        <p>Management and Entrepreneurship asks how people turn opportunity into organized action. The opportunity is clear: Copper Cup can create a coffee experience that helps customers understand the people and systems behind the bean. But ideas do not execute themselves. Someone has to plan the launch, organize roles, lead employees, measure results, and adapt when reality is messier than the plan.</p>
-        <p>Management begins with organizations. Organizations divide work among people with different skills so they can accomplish goals that would be difficult to achieve alone. That efficiency also creates challenges: people need motivation and commitment, teams need coordination, leaders need judgment, and the organization needs a strategy that connects daily work to competitive advantage.</p>
-        <p>The management discipline examines both the micro and macro sides of those challenges. The micro or organizational-behavior side studies how individuals and teams perform, communicate, negotiate, lead, respond to conflict, and remain committed. The macro or strategic side asks how a firm builds capabilities, positions itself against competitors, allocates resources, and creates value that is difficult to imitate.</p>
-        <p>Entrepreneurship is not limited to opening a company. It is a way of finding an opportunity, forming a value proposition, testing assumptions, assembling resources, and adjusting when evidence challenges the original idea. A student can use that mindset in a startup, a family business, a nonprofit, or an established company that needs a new product or process.</p>
-        <p>Human resources makes the people system visible. Copper Cup needs to recruit, select, onboard, train, schedule, support, evaluate, and retain employees. It also needs employment practices that are consistent, job-related, respectful, and compliant with applicable law. The product promise cannot survive if the company treats people as interchangeable labor.</p>
+        <h2>Management and Entrepreneurship: Who Will Carry the Story?</h2>
+        <p>On Monday morning, Elena places a green coffee sample, a shipping record, and a draft cafe sign on the conference table. The three artifacts describe the same bean, but not with the same level of certainty. The sign promises more than the records can prove.</p>
+        <p>“The idea is good,” Elena tells Maya Chen, Copper Cup's operations manager. “But an idea is not a system. I need someone to own the details without turning this into one more job everyone assumes someone else is doing.”</p>
+        <p>Management is the process of accomplishing organizational goals through planning, organizing, leading, and controlling people and other resources. Entrepreneurship accepts the risk of starting and running a business, but entrepreneurial thinking also appears inside an existing organization whenever people identify an opportunity, test assumptions, and adjust with evidence. Copper Cup needs both disciplines: a worthwhile opportunity and a workable organization.</p>
+        <p>Maya begins with planning. Copper Cup's broad, long-range aim is to become known for credible and understandable sourcing information. For the 12-week pilot, she translates that strategy into a short-range objective: one featured coffee, one approved claim library, and a weekly evidence review. She then drafts work standards and schedules. Finally, she asks what the team will do if a shipment arrives without the expected documentation. Strategic, tactical, operational, and contingency planning answer different questions, but they must reinforce one another.</p>
+        <p>Next comes organizing. Maya maps the network behind the role: employees, the roaster, the importing partner, the cooperative, and the customer. She identifies who provides evidence, who approves public claims, who trains the team, and who can pause a claim when the documentation is incomplete. Organizing is not merely drawing boxes. It allocates resources, assigns tasks, establishes procedures, and places people where they can contribute most effectively.</p>
+        <p>The staffing conversation exposes a problem. Jordan, a shift lead, could grow into the role with training. An external applicant might bring stronger data experience. A student internship could add a genuine learning partnership. Yet the proposed unpaid internship is designed mainly to cover productive work and replace a planned employee. Maya flags the idea for careful review rather than treating the word “intern” as a wage exemption.</p>
+        <p>Leading begins before anyone is hired. Employees need to understand why accurate claims matter, what authority the coordinator will hold, and how concerns can be raised. The leadership approach should fit the person and the work. A new employee may need close guidance while learning legal and evidence boundaries. An experienced coordinator may be given freedom to design the weekly workflow within clear limits.</p>
+        <p>Controlling closes the loop. Maya proposes five steps: establish clear standards, monitor and record performance, compare results against standards, communicate results, and take corrective action when needed. The final action can also reveal that the original standard was unrealistic. Control is therefore not a hunt for blame; it is a feedback process.</p>
+        <p>The new role will require technical skill with records and simple data tools, conceptual skill to see how sourcing evidence affects operations and reputation, and human-relations skill to coach employees and work across organizations. The coordinator will also perform interpersonal, informational, and decisional roles: build relationships, gather and share reliable information, and act when evidence or workflow breaks down.</p>
+        <p>Elena asks Maya to return with a staffing recommendation supported by a job-related selection process. She wants qualified candidates, consistent evidence, lawful treatment, and a clear welcome after an offer. She also wants the pilot to remain entrepreneurial: small enough to learn from, disciplined enough to protect people, and useful enough to guide the next decision.</p>
 
-        <p>Elena writes a launch goal:</p>
-        <div class="callout">
-          <p><strong>In eight weeks, Copper Cup will introduce The Story of the Bean in a way that increases customer understanding, protects employee workload, and meets the sales level needed to sustain the cooperative relationship.</strong></p>
+        <div class="ai-note">
+          <h3>AI at Work: Useful Drafts, Human Accountability</h3>
+          <p>AI could draft a role description, map responsibilities, generate interview-question ideas, or summarize weekly operating data. Managers remain responsible for verifying job relevance, protecting applicant and employee data, checking for bias and accessibility barriers, applying current law, and making the final decision. An AI ranking is not neutral simply because it is automated.</p>
         </div>
-
-        <p>Maya sees the four functions of management. Planning defines goals, assumptions, timelines, and decisions. Organizing assigns work, authority, information, and resources. Leading influences people to understand the purpose, contribute ideas, and perform with confidence. Controlling compares actual results with standards so managers can communicate deviations, correct problems, and reinforce what works.</p>
-        <p>The entrepreneurship lens adds a testable assumption: customers will care enough about the bean's story to support a more transparent sourcing model. Copper Cup does not yet know whether the right format is a premium latte, a small drip, a retail bag, a QR page, a short employee script, or some combination. The pilot should create evidence before the company scales.</p>
-        <p>The first week reveals the human side of the launch. During the morning rush, customers ask detailed questions. Some employees are excited. Others feel they are being asked to sell a more expensive drink while the line grows longer. Jordan, the shift lead, tells Maya, "I like the purpose, but if the goal is just to sell more, people will start saying whatever gets the order finished."</p>
-        <p>That warning is supported by management research in the course content. Difficult goals can motivate performance, but goals that feel unattainable or threatening can increase uncertainty, anxiety, burnout, and unethical behavior. Employees may narrow their attention to the measured target and stop helping coworkers. Involving employees in goal setting and providing support can increase enthusiasm and preserve the citizenship behaviors that keep a team functioning.</p>
-        <p>Elena revises the plan. Instead of requiring an upsell to every customer, employees ask one question: "Would you like to try the new roast and hear where it came from?" During rush periods, they give a short evidence-based explanation and point interested customers to the QR page. During slower periods, they can tell the fuller story.</p>
-        <p>The team also creates an ethical voice channel. Priya uses it immediately: "The sign says this coffee supports farmers. Can we say exactly how?" The team examines the evidence and changes the language:</p>
-        <div class="evidence-note">
-          <p><strong>Copper Cup pays a premium through a direct cooperative relationship and is piloting traceability tools to show more of the bean's journey.</strong></p>
-        </div>
-        <p>The new statement is less dramatic and more defensible. Research on ethical voice shows why this matters. Formal policies are not enough. Employees need practical ways to raise a complaint, suggest a more ethical action, or ask a question that redirects attention to an ethical issue. Leaders must respond without punishing the person who speaks.</p>
-        <p>Copper Cup's management problem is therefore not choosing between performance and responsibility. Effective leaders recognize that some tensions require a both-and response: sales and accuracy, customer access and financial sustainability, individual performance and teamwork, strategic control and employee voice.</p>
-        <p>Management and Entrepreneurship shows that responsibility is not merely an intention. It is a practice that has to be planned, organized, led, measured, corrected, and learned.</p>
       </article>
 
       <article class="tab-panel" id="panel-functions" role="tabpanel" tabindex="0" aria-labelledby="tab-functions" hidden>
-        <h2>Four Functions in Action</h2>
-        <p>The functions overlap in real work. A manager may plan a training standard, organize who teaches it, lead the team through practice, and control the process by checking whether employees can use the script accurately during a rush.</p>
+        <h2>The Four Functions in Action</h2>
+        <p>The functions overlap. Maya can move among them in a single meeting, but each function answers a different management question.</p>
 
         <div class="function-grid" aria-label="Four functions of management">
           <section class="function-item">
             <span class="function-number">1</span>
             <h3>Planning</h3>
-            <p>Set goals, assumptions, timelines, standards, and alternatives before committing resources.</p>
+            <p>Set goals, choose strategies, identify resources, define standards, and prepare alternatives.</p>
           </section>
           <section class="function-item">
             <span class="function-number">2</span>
             <h3>Organizing</h3>
-            <p>Assign roles, authority, information, schedules, and resources so work can move.</p>
+            <p>Allocate resources, assign tasks, establish authority, recruit people, and create procedures.</p>
           </section>
           <section class="function-item">
             <span class="function-number">3</span>
             <h3>Leading</h3>
-            <p>Influence, communicate, coach, listen, and build commitment to shared goals.</p>
+            <p>Create a vision, motivate people, clarify routines and policies, and provide feedback.</p>
           </section>
           <section class="function-item">
             <span class="function-number">4</span>
             <h3>Controlling</h3>
-            <p>Compare results with standards, communicate gaps, correct problems, and reinforce success.</p>
+            <p>Measure performance against standards, communicate results, reward success, and correct problems.</p>
           </section>
         </div>
 
-        <h3 class="artifact-heading">Artifact: Maya's Launch Responsibility Board</h3>
-        <div class="table-wrap" role="region" aria-label="Copper Cup launch responsibility board" tabindex="0">
+        <h3>Four Forms of Planning</h3>
+        <div class="table-wrap" role="region" aria-label="Forms of planning applied to Copper Cup" tabindex="0">
           <table>
             <thead>
               <tr>
-                <th scope="col">Workstream</th>
-                <th scope="col">Owner</th>
-                <th scope="col">Launch Standard</th>
-                <th scope="col">Signal and Response</th>
+                <th scope="col">Planning Form</th>
+                <th scope="col">Management Purpose</th>
+                <th scope="col">Copper Cup Example</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td>Employee training</td>
-                <td>Jordan and Maya</td>
-                <td>Every employee practices the short and full sourcing explanation.</td>
-                <td>Recoach when an employee cannot identify what Copper Cup verifies.</td>
+                <td><strong>Strategic</strong></td>
+                <td>Set broad, long-range goals.</td>
+                <td>Build a reputation for credible and understandable sourcing information.</td>
               </tr>
               <tr>
-                <td>Customer claim</td>
-                <td>Elena and Priya</td>
-                <td>Menu, QR page, and employee script use the same evidence boundary.</td>
-                <td>Pause or revise language when a claim exceeds available evidence.</td>
+                <td><strong>Tactical</strong></td>
+                <td>Identify specific short-range objectives that support strategy.</td>
+                <td>Run one 12-week pilot with a featured coffee and weekly evidence review.</td>
               </tr>
               <tr>
-                <td>Morning-rush workflow</td>
-                <td>Shift lead</td>
-                <td>The short explanation does not materially delay regular service.</td>
-                <td>Simplify the handoff or adjust staffing when wait time rises sharply.</td>
+                <td><strong>Operational</strong></td>
+                <td>Set work standards and schedules.</td>
+                <td>Assign Monday record checks, shift coaching, and Friday reporting.</td>
               </tr>
               <tr>
-                <td>Inventory and waste</td>
-                <td>Opening manager</td>
-                <td>Batch size reflects forecast demand and available cooperative coffee.</td>
-                <td>Adjust the next batch when stockouts or closing waste exceed the standard.</td>
-              </tr>
-              <tr>
-                <td>Pilot learning</td>
-                <td>Maya</td>
-                <td>Sales, questions, QR scans, workload, and evidence status are reviewed weekly.</td>
-                <td>Recommend a pivot when the data contradict the launch assumptions.</td>
+                <td><strong>Contingency</strong></td>
+                <td>Create a backup plan if the primary plan fails.</td>
+                <td>Pause an unsupported claim and use origin-only language until evidence arrives.</td>
               </tr>
             </tbody>
           </table>
@@ -885,287 +929,350 @@
 
         <h3>The Five-Step Control Process</h3>
         <ol class="control-steps">
-          <li><strong>Set standards.</strong><br>Define the expected result and acceptable range.</li>
-          <li><strong>Monitor results.</strong><br>Collect relevant, timely, and usable evidence.</li>
-          <li><strong>Compare.</strong><br>Identify gaps between actual results and standards.</li>
-          <li><strong>Communicate.</strong><br>Share results and deviations with the people involved.</li>
-          <li><strong>Act and learn.</strong><br>Correct problems and reinforce successful performance.</li>
+          <li><strong>Establish clear standards.</strong><br>Define the expected result and acceptable evidence.</li>
+          <li><strong>Monitor and record.</strong><br>Collect timely performance information.</li>
+          <li><strong>Compare results.</strong><br>Evaluate actual performance against standards.</li>
+          <li><strong>Communicate results.</strong><br>Share what is working and what differs.</li>
+          <li><strong>Take corrective action.</strong><br>Fix performance or revise unrealistic standards.</li>
         </ol>
 
+        <div class="evidence-note">
+          <h3>Control Artifact: Pilot Standards</h3>
+          <ul>
+            <li>Every public claim appears in the approved evidence library.</li>
+            <li>Documentation gaps are recorded within one business day.</li>
+            <li>Employees can explain the featured coffee without inventing details.</li>
+            <li>Weekly reports include evidence quality, workload, questions, and service impact.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="tab-panel" id="panel-skills" role="tabpanel" tabindex="0" aria-labelledby="tab-skills" hidden>
+        <h2>What Managers Do</h2>
+        <p>Management level changes the mix of skills a person uses. First-line managers often rely heavily on technical skill. Top managers need more conceptual skill. Human-relations skill matters at every level.</p>
+
+        <div class="skills-grid" aria-label="Three management skills">
+          <section>
+            <h3>Technical Skill</h3>
+            <p>Perform and understand a specialized task. The coordinator must read records, maintain data, and apply the approved claim process.</p>
+          </section>
+          <section>
+            <h3>Conceptual Skill</h3>
+            <p>See the organization as a whole. The coordinator must connect evidence choices to staffing, service, reputation, and strategy.</p>
+          </section>
+          <section>
+            <h3>Human-Relations Skill</h3>
+            <p>Work effectively with people. The coordinator must coach employees, listen to concerns, and collaborate across organizations.</p>
+          </section>
+        </div>
+
+        <h3>Three Managerial Roles</h3>
+        <div class="role-grid" aria-label="Three managerial roles">
+          <section>
+            <h3>Interpersonal</h3>
+            <p>Build relationships and connect people. Maya introduces the coordinator to shift leads, partners, and decision makers.</p>
+          </section>
+          <section>
+            <h3>Informational</h3>
+            <p>Acquire and deliver accurate information. The coordinator gathers documentation and translates it for employees and customers.</p>
+          </section>
+          <section>
+            <h3>Decisional</h3>
+            <p>Use information to take action. The coordinator pauses unsupported language and recommends a correction or new test.</p>
+          </section>
+        </div>
+
+        <h3>Managers and Leaders</h3>
+        <p>Management coordinates goals, resources, roles, and performance. Leadership creates direction and influences people to pursue it. A formal manager needs both, while an employee can provide leadership without holding a management title.</p>
+        <p>Leadership ranges from manager-centered to employee-centered. A manager may make and announce a decision when a legal or safety boundary is not negotiable. The same manager may ask a skilled employee to design a workflow within clearly defined limits. Effective leadership considers the employee's expertise and motivation, the risk of the task, and the amount of discretion the situation permits.</p>
+
+        <h3>How Management Is Changing</h3>
+        <ul class="research-list">
+          <li><strong>Flatter structures:</strong> Fewer management layers and more self-managed teams move judgment closer to the work.</li>
+          <li><strong>Distributed collaboration:</strong> Managers maintain relationships and reliable information across in-person, remote, and partner networks.</li>
+          <li><strong>Contingent work:</strong> Employees, contractors, gig workers, and interns create new flexibility alongside classification, coordination, and fairness questions.</li>
+          <li><strong>AI-supported decisions:</strong> Faster analysis can assist managers, but privacy, bias, accessibility, source quality, and accountability remain human responsibilities.</li>
+        </ul>
+
         <div class="ai-note">
-          <h3>AI at Work: Reviewing the Control Board</h3>
-          <p>AI could summarize shift notes or flag patterns in sales, wait time, and customer questions. A manager still decides whether the measures are comparable, whether the data omit employee experience, and whether a correction solves the cause instead of merely changing the number.</p>
+          <h3>AI at Work: Supporting the Informational Role</h3>
+          <p>AI can summarize notes, flag inconsistent wording, or organize weekly signals. It cannot establish trust, understand every context, or accept accountability. Maya should verify source records, let employees correct the summary, and keep consequential decisions with responsible people.</p>
         </div>
       </article>
 
       <article class="tab-panel" id="panel-people" role="tabpanel" tabindex="0" aria-labelledby="tab-people" hidden>
-        <h2>People, Leadership, and Human Resources</h2>
-        <p>Managers coordinate goals, resources, roles, and controls. Leaders influence direction, meaning, trust, and commitment. The same person may do both, but a detailed schedule does not automatically inspire people, and a compelling vision does not replace staffing or follow-through.</p>
-        <p>Leadership style should fit the situation. A directive approach may be appropriate for immediate safety or compliance requirements. A participative approach uses employee knowledge when redesigning the rush workflow. Coaching builds skill through practice and feedback. Transformational or purpose-centered leadership connects daily work to a larger reason while still respecting evidence and workload.</p>
-        <p>Human resource management helps Copper Cup attract, select, onboard, train, compensate, support, and retain the people who make the launch possible. HR also connects people decisions to business strategy. The company cannot create a differentiated customer experience without employees who have the knowledge, time, motivation, and authority to deliver it.</p>
+        <h2>People, Selection, and Employment Law</h2>
+        <p>Human resource management helps an organization attract, select, onboard, develop, support, compensate, and retain people. Employment law affects the entire employee life cycle. Coverage and requirements can depend on the law, employer size, location, worker status, and specific facts, so managers should use current agency guidance and qualified advice.</p>
 
-        <h3 class="artifact-heading">Artifact: Copper Cup's Six-Step Selection Plan</h3>
-        <div class="table-wrap" role="region" aria-label="Copper Cup employee selection plan" tabindex="0">
+        <h3>Legal Boundaries in This Case</h3>
+        <ul class="research-list">
+          <li><strong>Nondiscrimination:</strong> Recruitment, interviews, tests, assignments, pay, and promotion should use job-related criteria and avoid unlawful discrimination.</li>
+          <li><strong>Accessibility:</strong> Applicants and employees may need reasonable accommodation, including access to the application and assessment process.</li>
+          <li><strong>Wage and hour:</strong> Calling a person an intern does not by itself determine whether that person is an employee entitled to minimum wage and overtime protections.</li>
+          <li><strong>Work authorization and safety:</strong> Hiring includes lawful identity and work-authorization procedures, while managers must also train people for workplace hazards.</li>
+          <li><strong>Changing requirements:</strong> Federal, state, and local rules evolve. Managers need reliable sources and should not treat an old checklist or AI answer as current legal advice.</li>
+        </ul>
+
+        <h3>The Six Steps in Selection</h3>
+        <p>Before selection begins, managers can look internally through transfers, promotions, retraining, and employee recommendations, then externally through schools, networks, websites, agencies, former employees, or other sources. Once candidates enter the process, Copper Cup should apply the same job-related stages consistently.</p>
+        <ol class="selection-steps">
+          <li><strong>Application.</strong><br>Use an accessible, efficient process that collects relevant information.</li>
+          <li><strong>Interviews and screens.</strong><br>Assess skill, expectations, and motivation with consistent questions.</li>
+          <li><strong>Assessment and testing.</strong><br>Use reliable, valid, job-related measures, such as a work sample.</li>
+          <li><strong>Background check.</strong><br>Verify relevant history through a lawful, consistent process.</li>
+          <li><strong>Additional testing.</strong><br>Use physical or drug testing only when needed and lawful.</li>
+          <li><strong>Offer and onboarding.</strong><br>Welcome the person, clarify expectations, and provide support.</li>
+        </ol>
+
+        <h3>Artifact: Is This Really an Unpaid Internship?</h3>
+        <p>For a for-profit employer, the U.S. Department of Labor uses a flexible “primary beneficiary” test to examine the economic reality of an unpaid internship. No single factor decides the result. Relevant questions include whether there is an expectation of compensation; whether training resembles an educational environment; whether the experience is tied to formal education; whether it accommodates academic commitments; whether its duration is limited to beneficial learning; whether the intern complements rather than displaces paid employees while receiving significant educational benefits; and whether both sides understand there is no promise of a paid job afterward.</p>
+
+        <div class="table-wrap" role="region" aria-label="Internship evidence comparison" tabindex="0">
           <table>
             <thead>
               <tr>
-                <th scope="col">Step</th>
-                <th scope="col">Copper Cup Action</th>
-                <th scope="col">Management Reason</th>
+                <th scope="col">Proposed Feature</th>
+                <th scope="col">Management Concern</th>
+                <th scope="col">Stronger Safeguard</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td>1. Define criteria</td>
-                <td>Identify job-related service, learning, teamwork, and communication requirements.</td>
-                <td>Selection begins with the work, not a manager's personal similarity preference.</td>
+                <td>Cover two rush shifts and replace a planned seasonal hire</td>
+                <td>The work may displace paid employees and primarily benefit the cafe.</td>
+                <td>Use a paid role or redesign the internship around supervised learning that complements employees.</td>
               </tr>
               <tr>
-                <td>2. Recruit applicants</td>
-                <td>Describe duties, schedule, pay range, and essential requirements accurately.</td>
-                <td>A realistic preview improves fit and reduces avoidable turnover.</td>
+                <td>Maintain routine records with little instruction</td>
+                <td>Productive work alone does not establish an educational internship.</td>
+                <td>Add faculty-linked goals, mentoring, reflection, feedback, and progressively challenging learning.</td>
               </tr>
               <tr>
-                <td>3. Screen consistently</td>
-                <td>Review applications against the same documented criteria.</td>
-                <td>Consistency improves decision quality and supports fair treatment.</td>
+                <td>Require availability that conflicts with classes</td>
+                <td>The schedule may not accommodate academic commitments.</td>
+                <td>Set a limited duration and arrange hours around the academic calendar.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p><strong>Important:</strong> This activity is instructional, not legal advice. Copper Cup should consult current <a href="https://www.dol.gov/agencies/whd/fact-sheets/71-flsa-internships" target="_blank" rel="noopener">Department of Labor internship guidance</a>, relevant state and local requirements, and qualified counsel before classifying a worker.</p>
+
+        <div class="ai-note">
+          <h3>AI at Work: Selection Requires Oversight</h3>
+          <p>AI may help draft structured questions or organize applicant evidence. Copper Cup should never assume the output is lawful or unbiased. A person must validate every criterion against the role, provide accommodations, protect personal information, review results for unequal effects, and make the final decision.</p>
+        </div>
+      </article>
+
+      <article class="tab-panel" id="panel-paths" role="tabpanel" tabindex="0" aria-labelledby="tab-paths" hidden>
+        <h2>Department Paths and Research</h2>
+        <p>Management, entrepreneurship, and human resources study how people and organizations create value. That work connects to the <a href="https://www.asu.edu/about/charter-mission" target="_blank" rel="noopener">ASU Charter</a> through inclusion and learner success, research of public value, and responsibility to communities. It also supports the <a href="https://www.wpcarey.asu.edu/" target="_blank" rel="noopener">W. P. Carey vision and mission</a> through access, excellence, innovation, talent development, impactful research, community engagement, and positive change in business and society.</p>
+
+        <h3>Degree Pathways</h3>
+        <ul class="path-list">
+          <li><strong>Management:</strong> Build skills in organizational behavior, leadership, strategy, teamwork, and decision making.</li>
+          <li><strong>Business entrepreneurship:</strong> Discover opportunities, test value propositions, build business models, and learn through action.</li>
+          <li><strong>Human resources:</strong> Connect staffing, development, compensation, employee relations, analytics, and compliance to business strategy.</li>
+          <li><strong>Entrepreneurial or global leadership:</strong> Lead new ventures, growing organizations, and teams working across contexts.</li>
+          <li><strong>Business law:</strong> Examine the legal environment in which managers, employees, and organizations make decisions.</li>
+        </ul>
+        <p>Review current options on the <a href="https://wpcarey.asu.edu/management-degrees/undergraduate" target="_blank" rel="noopener">Department of Management and Entrepreneurship undergraduate programs page</a>.</p>
+
+        <h3>Research That Changes Practice</h3>
+        <ul class="research-list">
+          <li><strong>Goal setting:</strong> Difficult goals can energize performance, but threatening or unrealistic goals can narrow attention, increase strain, and weaken helping behavior.</li>
+          <li><strong>Ethical voice:</strong> Employees need practical ways to question, suggest, or challenge actions, and leaders must respond without retaliation.</li>
+          <li><strong>Leadership:</strong> Responsible leaders balance stakeholder needs and adapt their approach to the people, work, and uncertainty involved.</li>
+          <li><strong>Identity and stigma:</strong> Research on dirty work and organizational stigma examines how people maintain dignity and meaning when society devalues their work.</li>
+          <li><strong>Organizations and reputation:</strong> Studies of atypical organizations and celebrity chief executives show how identity and visibility can affect strategy and stakeholder judgment.</li>
+        </ul>
+
+        <h3>Careers and Involvement</h3>
+        <p>Graduates work in operations, project and team leadership, consulting, human resources, talent acquisition, learning and development, people analytics, product development, venture creation, and innovation inside established organizations. Chris Myers, an ASU graduate and entrepreneur featured in the course content, describes entrepreneurship as a flexible way of creating, validating, financing, and adapting ideas. Mindy West emphasizes that HR professionals combine HR expertise, business understanding, analytical thinking, relationships, and communication.</p>
+        <p>Students can test these interests through <a href="https://wpcarey.asu.edu/management-degrees/student-life" target="_blank" rel="noopener">department student organizations and experiences</a>, <a href="https://wpcarey.asu.edu/management-degrees/internship-information" target="_blank" rel="noopener">internships</a>, and <a href="https://entrepreneurship.wpcarey.asu.edu/learn" target="_blank" rel="noopener">entrepreneurship programs and venture learning</a>.</p>
+      </article>
+
+      <article class="tab-panel" id="panel-decision" role="tabpanel" tabindex="0" aria-labelledby="tab-decision" hidden>
+        <h2>Staffing Decision</h2>
+        <p>Maya has completed a first draft of the role. The staffing path is still open, and each option requires management work rather than intuition alone.</p>
+
+        <h3>Artifact: Role Evidence Brief</h3>
+        <div class="table-wrap" role="region" aria-label="Traceability coordinator role evidence" tabindex="0">
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">Role Element</th>
+                <th scope="col">Current Evidence</th>
+                <th scope="col">Open Decision</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Core outcomes</td>
+                <td>Verified claim library, employee coaching, gap log, and weekly pilot report</td>
+                <td>Which outcomes are essential during the 12-week pilot?</td>
               </tr>
               <tr>
-                <td>4. Interview and sample</td>
-                <td>Ask structured questions and use a short, accessible customer-scenario exercise.</td>
-                <td>Job-related evidence is stronger than an informal "gut feeling."</td>
+                <td>Job-related capabilities</td>
+                <td>Record accuracy, clear communication, basic data analysis, coaching, and follow-through</td>
+                <td>Which can be assessed now, and which can be trained?</td>
               </tr>
               <tr>
-                <td>5. Verify lawfully</td>
-                <td>Check relevant references or background information consistently and with notice.</td>
-                <td>Screening should be necessary, proportionate, documented, and privacy-conscious.</td>
+                <td>Authority</td>
+                <td>May flag or pause unsupported language and escalate unresolved evidence gaps</td>
+                <td>Who approves final claims and corrective action?</td>
               </tr>
               <tr>
-                <td>6. Offer and onboard</td>
-                <td>Make the offer, complete lawful post-offer steps, train, and provide early feedback.</td>
-                <td>Selection continues through preparation, support, and transfer of training to the job.</td>
+                <td>Staffing path</td>
+                <td>Internal development, external part-time hire, or paid educational internship</td>
+                <td>Which path best fits the work, learning goals, and lawful classification?</td>
+              </tr>
+              <tr>
+                <td>Success standards</td>
+                <td>Accurate claims, timely gap resolution, employee readiness, manageable service impact</td>
+                <td>What range is realistic, and how will results be communicated?</td>
               </tr>
             </tbody>
           </table>
         </div>
 
-        <h3>How Legislation Shapes HR Decisions</h3>
-        <ul>
-          <li><strong>Equal opportunity and nondiscrimination:</strong> Criteria and decisions must be job-related and applied consistently.</li>
-          <li><strong>Accessibility and accommodation:</strong> Applicants and employees may need reasonable access to selection, training, scheduling, and work.</li>
-          <li><strong>Wage, hour, leave, and scheduling requirements:</strong> Labor budgets and launch expectations must reflect lawful paid work and applicable protections.</li>
-          <li><strong>Safety and respectful work:</strong> Managers need prevention, reporting, response, and documentation practices.</li>
-          <li><strong>Privacy and records:</strong> Applicant and employee information should be collected only for a legitimate purpose and handled carefully.</li>
+        <h3>Three Staffing Paths</h3>
+        <ul class="message-thread" aria-label="Staffing options">
+          <li><span class="speaker">Internal development</span><span>Give a current employee a defined assignment, training, authority, and compensation. This preserves organization knowledge but may create coverage and development needs elsewhere.</span></li>
+          <li><span class="speaker">External employee</span><span>Hire a part-time employee through a structured process. This can add specialized experience but requires sourcing, selection, onboarding, and integration.</span></li>
+          <li><span class="speaker">Paid internship</span><span>Create a time-limited, mentored learning experience connected to academic goals while compensating the student. This reduces wage-status ambiguity but still requires meaningful education and supervision.</span></li>
         </ul>
-        <p>These principles are instructional examples, not a complete legal checklist. Copper Cup would need current professional guidance for the laws that apply to its location and workforce.</p>
 
         <div class="callout">
-          <h3>Goal Design and Citizenship</h3>
-          <p>A difficult goal should include employee input when possible, the resources needed to perform, clear ethical boundaries, and measures beyond sales. That design can reduce uncertainty and burnout while protecting the helping, mentoring, and teamwork behaviors that formal job descriptions often miss.</p>
+          <h3>Decision Standard</h3>
+          <p>A strong recommendation should identify the work Copper Cup actually needs, use job-related evidence, fit the management plan, protect candidate and employee rights, and include a way to learn during the pilot.</p>
         </div>
-      </article>
-
-      <article class="tab-panel" id="panel-paths" role="tabpanel" tabindex="0" aria-labelledby="tab-paths" hidden>
-        <h2>Management and Entrepreneurship in Action</h2>
-        <p>The department connects people, strategy, innovation, and human capital. Its current undergraduate pathways prepare students to lead teams, solve people and process problems, create or improve ventures, and manage the employment relationship.</p>
-
-        <h3>Current Degree and Certificate Pathways</h3>
-        <ul class="path-list">
-          <li><strong>Management:</strong> Strategic thinking, collaborative leadership, people and process problems, communication, and leading change.</li>
-          <li><strong>Business entrepreneurship:</strong> Opportunity identification, business-model design, resource strategy, product development, experimentation, and new or existing ventures.</li>
-          <li><strong>Human resources:</strong> Recruiting, staffing, compensation, training and development, employee relations, analytics, and legal compliance.</li>
-          <li><strong>Entrepreneurial and global leadership:</strong> Leading new ventures, small and medium-sized organizations, and teams operating across international contexts.</li>
-          <li><strong>Certificates:</strong> Entrepreneurship and innovation or leadership in business can add applied depth to another degree.</li>
-        </ul>
-        <div class="callout">
-          <p><strong>Explore the majors:</strong> Visit the <a href="https://wpcarey.asu.edu/management-degrees/undergraduate" target="_blank" rel="noopener">management and entrepreneurship undergraduate programs</a> to compare current degrees, certificates, and next steps.</p>
-        </div>
-
-        <h3>Research That Changes Practice</h3>
-        <ul class="research-list">
-          <li><strong>Ethical voice:</strong> Ned Wellman's research shows how complaints, suggestions, and ethical questions can help employees redirect questionable behavior.</li>
-          <li><strong>Goal setting:</strong> Mike Baer and David Welsh examine how imposed or unattainable goals can increase anxiety, burnout, reduced citizenship, and unethical choices.</li>
-          <li><strong>Leadership and responsibility:</strong> David Waldman studies socially responsible leadership, paradoxes, technology transfer, and how leaders mobilize people around goals.</li>
-          <li><strong>Identity and stigma:</strong> Blake Ashforth and Milo Wang examine how people and organizations experience and manage stigmatized work or identities.</li>
-          <li><strong>Difference and visibility:</strong> Heewon Chae and Jonathan Bundy study atypical organizations, evaluation, strategic nonconformity, and the benefits and burdens of CEO celebrity.</li>
-        </ul>
-
-        <h3>Skills, Careers, and Ways to Participate</h3>
-        <p>Students build communication, collaboration, leadership, critical thinking, negotiation, conflict management, business-model design, HR judgment, analytics, experimentation, and ethical decision-making. Those skills can support careers in management, consulting, organizational change, HR, recruiting, training, employee relations, retail leadership, nonprofit work, startups, product development, and innovation inside established organizations.</p>
-        <p>Chris Myers describes entrepreneurship as learning by doing: validating ideas, raising resources, managing teams, responding to setbacks, and changing with the market. His experience starting and later selling a business illustrates how entrepreneurial learning travels between school, a venture, and a later teaching career.</p>
-        <ul>
-          <li>Apply management, entrepreneurship, or HR concepts through an internship and receive approved upper-division credit.</li>
-          <li>Join the ASU student chapter of the Society for Human Resource Management for speakers, panels, networking, and company tours.</li>
-          <li>Participate in eligible behavioral-lab studies that examine individual, team, and organizational behavior.</li>
-          <li>Explore the Center for Entrepreneurship and New Business Design, including venture learning and startup support.</li>
-          <li>Use W. P. Carey career coaching, events, and student organizations to test interests and build professional relationships.</li>
-        </ul>
-        <p>Explore <a href="https://wpcarey.asu.edu/management-degrees/student-life" target="_blank" rel="noopener">student life</a>, <a href="https://wpcarey.asu.edu/management-degrees/internship-information" target="_blank" rel="noopener">internships</a>, and the <a href="https://entrepreneurship.wpcarey.asu.edu/learn" target="_blank" rel="noopener">Center for Entrepreneurship</a>.</p>
 
         <div class="ai-note">
-          <h3>AI at Work: Exploring a Path</h3>
-          <p>Students can ask AI to compare roles, surface transferable skills, or draft questions for an informational interview. They should verify current program requirements and labor-market claims with official sources, then use conversations, coursework, clubs, internships, and projects as real evidence of fit.</p>
-        </div>
-      </article>
-
-      <article class="tab-panel" id="panel-decision" role="tabpanel" tabindex="0" aria-labelledby="tab-decision" hidden>
-        <h2>Management and Entrepreneurship Decision Point</h2>
-        <p>Copper Cup's first week creates employee stress and customer confusion. Elena must adjust the launch without abandoning the cooperative promise or rewarding unsupported claims.</p>
-
-        <h3 class="artifact-heading">Artifact: Employee Message Thread</h3>
-        <ul class="message-thread" aria-label="Copper Cup employee launch messages">
-          <li><span class="speaker">Elena, owner</span><span>Launch week starts Monday. The goal is to introduce the roast, not pressure every customer. Accuracy matters more than hype.</span></li>
-          <li><span class="speaker">Jordan, shift lead</span><span>Morning rush is my concern. We cannot explain a sourcing model while ten people are waiting unless we have a short version.</span></li>
-          <li><span class="speaker">Priya, barista</span><span>Can we get exact wording for what "supports farmers" means? I do not want to overpromise.</span></li>
-          <li><span class="speaker">Maya, student employee</span><span>Maybe we use one question at the register and send interested customers to the QR card for the full story.</span></li>
-          <li><span class="speaker">Sam, barista</span><span>What if someone asks whether it is fair trade?</span></li>
-          <li><span class="speaker">Elena, owner</span><span>Say: "This is a direct cooperative pilot, not a fair trade certified coffee. Here is what we verify and what we are still learning."</span></li>
-        </ul>
-
-        <h3>Option A: Push Harder on the Sales Goal</h3>
-        <p><strong>Business upside:</strong> May increase short-term revenue and move inventory quickly.</p>
-        <p><strong>Business risk:</strong> Can increase burnout, exaggerated claims, narrow attention, and weaker teamwork.</p>
-        <p><strong>Social question:</strong> When does a performance goal become harmful?</p>
-
-        <h3>Option B: Slow the Launch and Retrain</h3>
-        <p><strong>Business upside:</strong> Improves employee confidence, accuracy, and consistent customer communication.</p>
-        <p><strong>Business risk:</strong> Reduces immediate momentum and may delay learning from live customer behavior.</p>
-        <p><strong>Social question:</strong> Is slower execution justified when the product story involves social responsibility?</p>
-
-        <h3>Option C: Keep the Pilot Active and Simplify Expectations</h3>
-        <p><strong>Business upside:</strong> Protects momentum while using a short script, clear claim boundary, employee voice, and weekly review.</p>
-        <p><strong>Business risk:</strong> Some customers may learn less unless they choose to engage with the fuller story.</p>
-        <p><strong>Social question:</strong> How can Copper Cup respect workload and customers' right to accurate information?</p>
-
-        <div class="callout">
-          <h3>Case Prompt</h3>
-          <p>Recommend one launch adjustment. Use planning, organizing, leading, controlling, entrepreneurship, HR, goal setting, or ethical voice to explain your choice. Identify one stakeholder who benefits and one who may bear a cost.</p>
+          <h3>AI at Work: Challenge the Recommendation</h3>
+          <p>Maya could ask AI to compare the staffing paths or identify missing risks. Before using that analysis, she should remove personal applicant information, check the assumptions against source evidence, look for biased proxies, and document why people accepted or rejected the suggestion.</p>
         </div>
       </article>
 
       <article class="tab-panel" id="panel-practice" role="tabpanel" tabindex="0" aria-labelledby="tab-practice" hidden>
         <h2>Interactive Practice</h2>
-        <p>Complete all four function matches and six case decisions, then select <strong>Check My Management Reading</strong>. You may revise and check again before submitting to Canvas.</p>
+        <p>Complete all 10 objective checks. The first four ask you to match management functions. Questions 5 through 10 ask you to interpret the refreshed case evidence.</p>
 
         <form id="practice-form" novalidate>
-          <section aria-labelledby="function-practice-heading">
-            <h3 id="function-practice-heading">1-4. Match the Four Functions</h3>
-            <div class="match-grid">
-              <div class="match-row">
-                <label for="function-goal">Set the launch goal, timeline, standards, and alternatives.</label>
-                <select id="function-goal" name="functionGoal" required>
-                  <option value="">Select a function</option>
-                  <option value="planning">Planning</option>
-                  <option value="organizing">Organizing</option>
-                  <option value="leading">Leading</option>
-                  <option value="controlling">Controlling</option>
-                </select>
-              </div>
-              <div class="match-row">
-                <label for="function-roles">Assign training, inventory, claim, and shift responsibilities.</label>
-                <select id="function-roles" name="functionRoles" required>
-                  <option value="">Select a function</option>
-                  <option value="planning">Planning</option>
-                  <option value="organizing">Organizing</option>
-                  <option value="leading">Leading</option>
-                  <option value="controlling">Controlling</option>
-                </select>
-              </div>
-              <div class="match-row">
-                <label for="function-team">Explain the purpose, invite employee input, and coach the team.</label>
-                <select id="function-team" name="functionTeam" required>
-                  <option value="">Select a function</option>
-                  <option value="planning">Planning</option>
-                  <option value="organizing">Organizing</option>
-                  <option value="leading">Leading</option>
-                  <option value="controlling">Controlling</option>
-                </select>
-              </div>
-              <div class="match-row">
-                <label for="function-results">Compare sales, wait time, workload, and claims with standards.</label>
-                <select id="function-results" name="functionResults" required>
-                  <option value="">Select a function</option>
-                  <option value="planning">Planning</option>
-                  <option value="organizing">Organizing</option>
-                  <option value="leading">Leading</option>
-                  <option value="controlling">Controlling</option>
-                </select>
-              </div>
+          <div class="match-grid">
+            <div class="match-row">
+              <label for="function-goal">1. Maya defines the pilot objective, standards, resources, and backup approach.</label>
+              <select id="function-goal" name="functionGoal" required>
+                <option value="">Choose a function</option>
+                <option value="organizing">Organizing</option>
+                <option value="controlling">Controlling</option>
+                <option value="planning">Planning</option>
+                <option value="leading">Leading</option>
+              </select>
             </div>
-          </section>
+            <div class="match-row">
+              <label for="function-roles">2. Maya assigns claim approval, coaching, recordkeeping, and escalation authority.</label>
+              <select id="function-roles" name="functionRoles" required>
+                <option value="">Choose a function</option>
+                <option value="leading">Leading</option>
+                <option value="planning">Planning</option>
+                <option value="organizing">Organizing</option>
+                <option value="controlling">Controlling</option>
+              </select>
+            </div>
+            <div class="match-row">
+              <label for="function-team">3. Maya explains the purpose, listens to employee concerns, and coaches the team.</label>
+              <select id="function-team" name="functionTeam" required>
+                <option value="">Choose a function</option>
+                <option value="controlling">Controlling</option>
+                <option value="leading">Leading</option>
+                <option value="planning">Planning</option>
+                <option value="organizing">Organizing</option>
+              </select>
+            </div>
+            <div class="match-row">
+              <label for="function-results">4. Maya compares weekly results with standards and corrects gaps.</label>
+              <select id="function-results" name="functionResults" required>
+                <option value="">Choose a function</option>
+                <option value="planning">Planning</option>
+                <option value="organizing">Organizing</option>
+                <option value="controlling">Controlling</option>
+                <option value="leading">Leading</option>
+              </select>
+            </div>
+          </div>
 
-          <section class="question-card" data-question="goal" data-correct="balanced">
-            <h3>5. Design the Launch Goal</h3>
+          <section class="question-card" data-question="planning" data-correct="strategic">
+            <h3>5. Identify the Planning Form</h3>
             <fieldset>
-              <legend>Which approach best connects planning and goal setting to responsible performance?</legend>
-              <label class="choice-row"><input type="radio" name="goal" value="stretch" required> Keep a fixed sales target and reward any script that moves customers through the line.</label>
-              <label class="choice-row"><input type="radio" name="goal" value="balanced"> Set a challenging pilot target with employee input, support, claim standards, and workload measures.</label>
-              <label class="choice-row"><input type="radio" name="goal" value="remove"> Remove performance goals entirely and let each shift define success after the launch.</label>
+              <legend>Copper Cup sets a broad, long-range goal to become known for credible sourcing information. Which form of planning is this?</legend>
+              <label class="choice-row"><input type="radio" name="planning" value="operational" required> Operational planning because it establishes weekly assignments, work schedules, and specific employee performance standards.</label>
+              <label class="choice-row"><input type="radio" name="planning" value="strategic"> Strategic planning because it establishes a broad, long-range direction for the organization and its reputation.</label>
+              <label class="choice-row"><input type="radio" name="planning" value="contingency"> Contingency planning because it prepares an alternate response if expected documentation or staffing becomes unavailable.</label>
             </fieldset>
           </section>
 
-          <section class="question-card" data-question="leadership" data-correct="participative">
-            <h3>6. Choose a Leadership Response</h3>
+          <section class="question-card" data-question="skill" data-correct="conceptual">
+            <h3>6. Read the Management Skill</h3>
             <fieldset>
-              <legend>Which response best fits the launch problem?</legend>
-              <label class="choice-row"><input type="radio" name="leadership" value="directive" required> Require one script in every situation and treat employee questions as resistance to the launch.</label>
-              <label class="choice-row"><input type="radio" name="leadership" value="participative"> Invite shift input, explain the purpose, and coach employees on accurate customer conversations.</label>
-              <label class="choice-row"><input type="radio" name="leadership" value="avoid"> Hand the full launch to employees and avoid setting standards or resolving workflow conflicts.</label>
+              <legend>The coordinator connects evidence gaps to service, staffing, reputation, and strategy. Which skill is most central?</legend>
+              <label class="choice-row"><input type="radio" name="skill" value="technical" required> Technical skill because it focuses on performing a specialized task and applying a defined recordkeeping procedure.</label>
+              <label class="choice-row"><input type="radio" name="skill" value="human"> Human-relations skill because it focuses on coaching employees, resolving concerns, and sustaining productive working relationships.</label>
+              <label class="choice-row"><input type="radio" name="skill" value="conceptual"> Conceptual skill because it connects activities and evaluates how they affect the organization as a whole.</label>
+            </fieldset>
+          </section>
+
+          <section class="question-card" data-question="leadership" data-correct="limits">
+            <h3>7. Choose a Leadership Response</h3>
+            <fieldset>
+              <legend>An experienced coordinator understands the evidence rules and proposes a better weekly workflow. What should Maya do?</legend>
+              <label class="choice-row"><input type="radio" name="leadership" value="limits" required> Define the nonnegotiable evidence limits, invite the coordinator to design the workflow, and review results together.</label>
+              <label class="choice-row"><input type="radio" name="leadership" value="announce"> Make every workflow decision herself, announce the final procedure, and discourage questions during the pilot.</label>
+              <label class="choice-row"><input type="radio" name="leadership" value="withdraw"> Give the coordinator complete freedom, remove all review points, and avoid discussing performance until the pilot ends.</label>
             </fieldset>
           </section>
 
           <section class="question-card" data-question="control" data-correct="sequence">
-            <h3>7. Apply the Control Process</h3>
+            <h3>8. Apply the Control Process</h3>
             <fieldset>
-              <legend>Which sequence correctly applies the five-step control process?</legend>
-              <label class="choice-row"><input type="radio" name="control" value="sequence" required> Set standards, monitor results, compare performance, communicate deviations, and correct or reinforce.</label>
-              <label class="choice-row"><input type="radio" name="control" value="late"> Collect results, change the goal, assign blame, announce the standard, and stop measuring.</label>
-              <label class="choice-row"><input type="radio" name="control" value="sales"> Track sales, ignore other signals, reward the top shift, and repeat the launch unchanged.</label>
+              <legend>Which sequence reflects the five-step control process in the refreshed course content?</legend>
+              <label class="choice-row"><input type="radio" name="control" value="blame" required> Record performance, assign responsibility, lower expectations, announce the result, and replace the employee.</label>
+              <label class="choice-row"><input type="radio" name="control" value="sales"> Establish sales targets, monitor revenue, compare shifts, reward the leader, and repeat the process.</label>
+              <label class="choice-row"><input type="radio" name="control" value="sequence"> Establish standards, monitor and record, compare results, communicate results, and take corrective action.</label>
             </fieldset>
           </section>
 
-          <section class="question-card" data-question="hr" data-correct="structured">
-            <h3>8. Select and Support Employees</h3>
+          <section class="question-card" data-question="selection" data-correct="structured">
+            <h3>9. Select with Evidence</h3>
             <fieldset>
-              <legend>Which selection approach best combines HR judgment and legal awareness?</legend>
-              <label class="choice-row"><input type="radio" name="hr" value="friend" required> Hire referrals who feel familiar, skip documentation, and decide whether training is needed later.</label>
-              <label class="choice-row"><input type="radio" name="hr" value="structured"> Use job-related criteria, structured interviews, a work sample, consistent records, and lawful post-offer steps.</label>
-              <label class="choice-row"><input type="radio" name="hr" value="speed"> Choose the fastest applicants, ask different personal questions, and use instinct as the final screen.</label>
+              <legend>Which approach best applies the six selection steps while managing legal and AI-related risk?</legend>
+              <label class="choice-row"><input type="radio" name="selection" value="speed" required> Let AI rank resumes, interview only its top matches, skip accommodations, and retain every applicant record indefinitely.</label>
+              <label class="choice-row"><input type="radio" name="selection" value="structured"> Use accessible applications, consistent interviews, valid job-related assessments, lawful checks, human review, and supported onboarding.</label>
+              <label class="choice-row"><input type="radio" name="selection" value="instinct"> Recruit familiar people, vary personal questions by candidate, trust managerial instinct, and document only the final choice.</label>
             </fieldset>
           </section>
 
-          <section class="question-card" data-question="voice" data-correct="respond">
-            <h3>9. Respond to Ethical Voice</h3>
+          <section class="question-card" data-question="internship" data-correct="review">
+            <h3>10. Evaluate the Internship</h3>
             <fieldset>
-              <legend>Priya questions the phrase "supports farmers." What should Elena do?</legend>
-              <label class="choice-row"><input type="radio" name="voice" value="dismiss" required> Defend the approved sign, remind Priya who owns the company, and continue the launch.</label>
-              <label class="choice-row"><input type="radio" name="voice" value="respond"> Thank her, examine the evidence, revise the claim, and keep the voice channel open.</label>
-              <label class="choice-row"><input type="radio" name="voice" value="delay"> Save the concern for a later survey and keep the current wording during launch week.</label>
-            </fieldset>
-          </section>
-
-          <section class="question-card" data-question="experiment" data-correct="learn">
-            <h3>10. Make the Entrepreneurial Move</h3>
-            <fieldset>
-              <legend>Sales are below forecast, but questions and QR scans are high. What is the strongest next step?</legend>
-              <label class="choice-row"><input type="radio" name="experiment" value="scale" required> Scale the same offer immediately because customer curiosity proves the value proposition is working.</label>
-              <label class="choice-row"><input type="radio" name="experiment" value="learn"> Interview customers and employees, adjust the offer or message, define a new test, and learn.</label>
-              <label class="choice-row"><input type="radio" name="experiment" value="stop"> End the pilot immediately because missing the sales forecast proves the opportunity has disappeared.</label>
+              <legend>Copper Cup proposes an unpaid intern who will replace a seasonal employee and cover routine rush shifts. What is the strongest response?</legend>
+              <label class="choice-row"><input type="radio" name="internship" value="review" required> Pause the plan, apply the primary-beneficiary factors, consider a paid role, and obtain current professional guidance.</label>
+              <label class="choice-row"><input type="radio" name="internship" value="title"> Approve the plan because the intern title and possible course credit automatically remove wage and hour requirements.</label>
+              <label class="choice-row"><input type="radio" name="internship" value="waiver"> Ask the student to waive compensation, promise future consideration, and use the signed agreement as the legal standard.</label>
             </fieldset>
           </section>
 
           <div class="optional-box">
             <h3>Optional Take-Away Notes</h3>
             <p><strong><em>Not scored.</em></strong> These responses stay in your browser and are included when you print or save your take-away as a PDF.</p>
-            <label for="launch-recommendation">Which launch adjustment would you recommend?</label>
+            <label for="launch-recommendation">Which staffing path would you recommend for this pilot?</label>
             <select id="launch-recommendation" name="launchRecommendation">
-              <option value="">Select an adjustment</option>
-              <option value="Push harder on the sales goal">Push harder on the sales goal</option>
-              <option value="Slow the launch and retrain">Slow the launch and retrain</option>
-              <option value="Keep the pilot active and simplify expectations">Keep the pilot active and simplify expectations</option>
+              <option value="">Select a staffing path</option>
+              <option value="Develop and compensate a current employee">Develop and compensate a current employee</option>
+              <option value="Hire an external part-time employee">Hire an external part-time employee</option>
+              <option value="Create a paid educational internship">Create a paid educational internship</option>
             </select>
-            <label for="reflection-note">Reflection note</label>
-            <textarea id="reflection-note" name="reflectionNote" placeholder="Who benefits from your recommendation, and who may bear a cost?"></textarea>
+            <label for="reflection-note">One management or legal safeguard</label>
+            <textarea id="reflection-note" name="reflectionNote" placeholder="What safeguard would make your recommendation stronger?"></textarea>
           </div>
 
           <div id="form-error" class="error-message" role="alert" tabindex="-1" hidden></div>
@@ -1203,15 +1310,15 @@
           </div>
           <div class="summary-item">
             <strong>Unscored</strong>
-            Recommendation and reflection
+            Staffing path and safeguard
           </div>
         </div>
 
         <div class="callout">
           <h3>Management and Entrepreneurship Takeaway</h3>
-          <p>A responsible launch joins opportunity with execution. Managers plan, organize, lead, and control. HR builds and protects the people system. Entrepreneurs test assumptions and adapt. Ethical voice helps the organization correct what formal plans fail to anticipate.</p>
-          <p><strong>Your launch recommendation:</strong> <span id="selected-recommendation">No adjustment selected.</span></p>
-          <p><strong>Your reflection:</strong> <span id="reflection-summary">No reflection note entered.</span></p>
+          <p>A credible idea becomes organizational work through planning, organizing, leading, and controlling. Managers use technical, conceptual, and human-relations skills while performing interpersonal, informational, and decisional roles. Staffing decisions also require job-related evidence, lawful processes, and human accountability.</p>
+          <p><strong>Your staffing path:</strong> <span id="selected-recommendation">No staffing path selected.</span></p>
+          <p><strong>Your safeguard:</strong> <span id="reflection-summary">No safeguard entered.</span></p>
         </div>
 
         <button class="submit-button" id="submit-score" type="button">Submit Score to Canvas</button>
@@ -1232,11 +1339,11 @@
       </div>
 
       <h2>Key Takeaway</h2>
-      <p>A responsible launch joins opportunity with execution. Managers plan, organize, lead, and control. HR builds and protects the people system. Entrepreneurs test assumptions and adapt. Ethical voice helps the organization correct what formal plans fail to anticipate.</p>
+      <p>A credible idea becomes organizational work through planning, organizing, leading, and controlling. Managers use technical, conceptual, and human-relations skills while performing interpersonal, informational, and decisional roles. Staffing decisions also require job-related evidence, lawful processes, and human accountability.</p>
 
       <h2>Your Optional Notes</h2>
-      <p><strong>Launch recommendation:</strong> <span id="print-recommendation">No adjustment selected.</span></p>
-      <p><strong>Reflection:</strong> <span id="print-reflection">No reflection note entered.</span></p>
+      <p><strong>Staffing path:</strong> <span id="print-recommendation">No staffing path selected.</span></p>
+      <p><strong>Safeguard:</strong> <span id="print-reflection">No safeguard entered.</span></p>
 
       <h2>Objective Results</h2>
       <ol class="print-results" id="print-results"></ol>
@@ -1362,31 +1469,31 @@
         functionResults: "controlling"
       };
 
-      const decisionKeys = ["goal", "leadership", "control", "hr", "voice", "experiment"];
+      const decisionKeys = ["planning", "skill", "leadership", "control", "selection", "internship"];
       const feedbackMessages = {
-        goal: {
-          correct: "The goal remains challenging while adding employee input, support, ethical boundaries, and measures beyond sales.",
-          incorrect: "A sales-only target can narrow attention and increase pressure. Removing every goal also prevents coordinated learning."
+        planning: {
+          correct: "Strategic planning sets broad, long-range goals. Tactical planning translates them into shorter objectives, operational planning sets work standards and schedules, and contingency planning prepares backups.",
+          incorrect: "The statement describes broad, long-range direction, which is strategic planning. Operational planning focuses on work standards and schedules; contingency planning creates backup plans."
+        },
+        skill: {
+          correct: "Conceptual skill helps a manager see the organization as a whole and connect decisions across business activities.",
+          incorrect: "Technical skill supports specialized tasks, and human-relations skill supports work with people. Connecting several activities to the whole organization calls for conceptual skill."
         },
         leadership: {
-          correct: "A participative and coaching response uses shift knowledge, explains purpose, and still gives employees clear standards.",
-          incorrect: "Leadership requires direction and support. Uniform control or complete withdrawal ignores the judgment this launch needs."
+          correct: "The response fits an experienced employee: Maya preserves nonnegotiable limits while giving the coordinator meaningful discretion and feedback.",
+          incorrect: "Leadership should fit the employee and situation. Total control wastes relevant expertise, while total withdrawal removes needed evidence and performance boundaries."
         },
         control: {
-          correct: "The process begins with standards and moves through monitoring, comparison, communication, and corrective or reinforcing action.",
-          incorrect: "Control is a learning cycle, not late blame or a sales-only scoreboard. The sequence and the evidence both matter."
+          correct: "The course sequence is establish standards, monitor and record, compare against standards, communicate results, and take corrective action.",
+          incorrect: "Control begins with clear standards and uses recorded evidence, comparison, communication, and correction. It is broader than sales tracking and is not a blame sequence."
         },
-        hr: {
-          correct: "Job-related criteria, structured evidence, consistent records, and lawful screening support both decision quality and fair treatment.",
-          incorrect: "Similarity, speed, and instinct are weak substitutes for consistent, job-related, documented selection evidence."
+        selection: {
+          correct: "Accessible applications, consistent interviews, valid job-related assessments, lawful checks, human oversight, and onboarding support evidence-based selection.",
+          incorrect: "Automation and instinct do not replace job-related evidence, accommodations, lawful checks, consistent treatment, documentation, or accountable human review."
         },
-        voice: {
-          correct: "Ethical voice works when leaders examine the concern, improve the practice, and protect future speaking up.",
-          incorrect: "Delaying or punishing the concern preserves the immediate wording but weakens evidence, trust, and future voice."
-        },
-        experiment: {
-          correct: "Mixed signals call for customer and employee discovery, a revised hypothesis, and another measured test.",
-          incorrect: "Curiosity is not proof of demand, and one missed forecast is not proof that the opportunity has disappeared."
+        internship: {
+          correct: "The proposed work may displace a paid employee and primarily benefit Copper Cup. The title or a waiver is not decisive; current facts and guidance must be reviewed.",
+          incorrect: "Calling someone an intern, offering possible credit, or obtaining a waiver does not automatically settle employee status under wage and hour law."
         }
       };
 
@@ -1424,8 +1531,8 @@
       }
 
       function updateOptionalSummary() {
-        const recommendation = document.getElementById("launch-recommendation").value || "No adjustment selected.";
-        const reflection = document.getElementById("reflection-note").value.trim() || "No reflection note entered.";
+        const recommendation = document.getElementById("launch-recommendation").value || "No staffing path selected.";
+        const reflection = document.getElementById("reflection-note").value.trim() || "No safeguard entered.";
         document.getElementById("selected-recommendation").textContent = recommendation;
         document.getElementById("reflection-summary").textContent = reflection;
       }
@@ -1526,8 +1633,8 @@
       });
 
       function preparePrintTakeaway() {
-        const recommendation = document.getElementById("launch-recommendation").value || "No adjustment selected.";
-        const reflection = document.getElementById("reflection-note").value.trim() || "No reflection note entered.";
+        const recommendation = document.getElementById("launch-recommendation").value || "No staffing path selected.";
+        const reflection = document.getElementById("reflection-note").value.trim() || "No safeguard entered.";
         document.getElementById("print-score").textContent = `${currentScore} out of 100`;
         document.getElementById("print-checked").textContent = practiceChecked ? "10 of 10" : "0 of 10";
         document.getElementById("print-submission").textContent = scoreSubmitted ? "Confirmed" : "Not confirmed";
@@ -1539,12 +1646,12 @@
           "Organizing function",
           "Leading function",
           "Controlling function",
-          "Goal design",
+          "Planning form",
+          "Management skill",
           "Leadership response",
           "Control process",
           "Employee selection",
-          "Ethical voice",
-          "Entrepreneurial learning"
+          "Internship classification"
         ];
         const results = [...functionResults(), ...decisionResults()];
         const printResults = document.getElementById("print-results");
