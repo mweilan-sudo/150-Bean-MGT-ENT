@@ -831,7 +831,7 @@
         <h2 id="activity-heading">How This Chapter Works</h2>
         <p>Read the independent case narrative, inspect the management and hiring evidence, and complete all 10 objective checks. You may revise your work before the required Canvas submission step.</p>
         <div class="scoring-note">
-          <strong>Canvas scoring:</strong> Four management-function matches and six evidence-based decisions are worth 10 points each. Your staffing recommendation and safeguard are optional and unscored.
+          <strong>Canvas scoring:</strong> Your score is based on 10 practice checks worth 10 points each. For checks with multiple parts, all parts must be correct to earn the points. Your staffing recommendation and note about employee support or AI limits are optional and unscored.
         </div>
       </section>
 
@@ -1469,7 +1469,7 @@
           </div>
           <div class="summary-item">
             <strong>Unscored</strong>
-            Staffing path and safeguard
+            Staffing recommendation and optional note
           </div>
         </div>
 
@@ -1477,7 +1477,7 @@
           <h3>Management and Entrepreneurship Takeaway</h3>
           <p>Managers turn an idea into work through planning, organizing, leading, and controlling. Hiring continues into onboarding and employee support. AI can assist, but delegated authority needs boundaries and accountable people. Entrepreneurial teams test assumptions on a small scale before expanding.</p>
           <p><strong>Your staffing path:</strong> <span id="selected-recommendation">No staffing path selected.</span></p>
-          <p><strong>Your safeguard:</strong> <span id="reflection-summary">No safeguard entered.</span></p>
+          <p><strong>Your employee support or AI limits note:</strong> <span id="reflection-summary">No optional note entered.</span></p>
         </div>
 
         <button class="submit-button" id="submit-score" type="button">Submit Score to Canvas</button>
@@ -1502,7 +1502,7 @@
 
       <h2>Your Optional Notes</h2>
       <p><strong>Staffing path:</strong> <span id="print-recommendation">No staffing path selected.</span></p>
-      <p><strong>Safeguard:</strong> <span id="print-reflection">No safeguard entered.</span></p>
+      <p><strong>Employee support or AI limits note:</strong> <span id="print-reflection">No optional note entered.</span></p>
 
       <h2>Objective Results</h2>
       <ol class="print-results" id="print-results"></ol>
@@ -1746,7 +1746,7 @@
 
       function updateOptionalSummary() {
         const recommendation = document.getElementById("launch-recommendation").value || "No staffing path selected.";
-        const reflection = document.getElementById("reflection-note").value.trim() || "No safeguard entered.";
+        const reflection = document.getElementById("reflection-note").value.trim() || "No optional note entered.";
         document.getElementById("selected-recommendation").textContent = recommendation;
         document.getElementById("reflection-summary").textContent = reflection;
       }
@@ -1849,7 +1849,7 @@
 
       function preparePrintTakeaway() {
         const recommendation = document.getElementById("launch-recommendation").value || "No staffing path selected.";
-        const reflection = document.getElementById("reflection-note").value.trim() || "No safeguard entered.";
+        const reflection = document.getElementById("reflection-note").value.trim() || "No optional note entered.";
         document.getElementById("print-score").textContent = `${currentScore} out of 100`;
         document.getElementById("print-checked").textContent = practiceChecked ? "10 of 10" : "0 of 10";
         document.getElementById("print-submission").textContent = scoreSubmitted ? "Confirmed" : "Not confirmed";
